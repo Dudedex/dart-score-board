@@ -1,9 +1,11 @@
 <div class="panel">
   <app-tutorial-panel></app-tutorial-panel>
-  <hr>
+  <hr/>
   <app-setup-panel [gameSettings]="dartGameData.settings"></app-setup-panel>
-  <hr>
-  <section>
-    <app-dart-board></app-dart-board>
-  </section>
+  <hr/>
+    <div class="col-xs-6 no-padding">
+      <app-dart-board></app-dart-board>
+    </div>
+    <div class="col-xs-6 no-border">
+    </div>
 </div>

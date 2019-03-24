@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DartGameData} from './classes/dart-game-data';
 import {GameSettings} from './classes/game-setttings';
+import {TranslateService} from '@ngx-translate/core';
+import {TranslationProvider} from './translation/translation-provider';
+import {GameModes} from './classes/game-modes';
 
 @Component({
   selector: 'app-dart-board-panel',
@@ -9,14 +12,20 @@ import {GameSettings} from './classes/game-setttings';
 })
 export class DartBoardPanelComponent implements OnInit {
 
+  @Input()
+  public locale: string;
+
   public dartGameData: DartGameData;
 
-
-  constructor() { }
+  constructor(private translate: TranslateService) {
+  }
 
   ngOnInit() {
     this.dartGameData = new DartGameData();
     this.dartGameData.settings = new GameSettings();
+    console.log(GameModes.FREE_GAME);
+    this.dartGameData.settings.gameMode = GameModes.FREE_GAME;
+    TranslationProvider.setupTranslationProvider(this.translate, this.locale);
   }
 
 }

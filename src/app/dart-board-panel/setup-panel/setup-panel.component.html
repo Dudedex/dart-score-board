@@ -1,3 +1,13 @@
-<p>
-  setup-panel works!
-</p>
+<div class="setup-panel">
+  <h3>
+    {{'page.dartScoreBoard.setup.title' | translate}}
+  </h3>
+  <div class="game-mode-setup col-sm-6">
+    <div *ngFor="let gameMode of getGameModes()">
+      <input type="radio" [value]="gameMode" name="gameMode" [(ngModel)]="gameSettings.gameMode">
+      {{'page.dartScoreBoard.setup.gameMode.' + getGameModeValue(gameMode) | translate}}
+    </div>
+  </div>
+
+
+</div>
