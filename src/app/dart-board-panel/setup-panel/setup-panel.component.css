@@ -1,5 +1,24 @@
-.game-mode-setup {
+.radio-button-group {
   padding: 0.5rem;
+  margin: 0.5rem;
   border-radius: 5px;
-  background-color: #9d9d9d;
+  background-color: #adadad;
+}
+
+.custom-input {
+  margin-left: 0.5rem;
+  height: 18px;
+  width:50px;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.minimal-advantage {
+  margin-top: 1rem;
+}
+
+.no-padding {
+  padding: 0;
 }

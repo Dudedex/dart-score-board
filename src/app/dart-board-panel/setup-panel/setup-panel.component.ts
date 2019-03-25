@@ -12,9 +12,16 @@ export class SetupPanelComponent implements OnInit {
   @Input()
   public gameSettings: GameSettings;
 
+  public isCustomizedRequiredScore: boolean;
+  public isCustomizedRequiredLegs: boolean;
+  public isCustomizedRequiredSets: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.isCustomizedRequiredScore = false;
+    this.isCustomizedRequiredLegs = false;
+    this.isCustomizedRequiredSets = false;
   }
 
   public getGameModes() {
@@ -29,5 +36,38 @@ export class SetupPanelComponent implements OnInit {
 
   public getGameModeValue(key: number) {
     return GameModes.valueOf()[key];
+  }
+
+  public getConvertedRequiredScore() {
+    if (this.isCustomizedRequiredScore) {
+      return -1;
+    }
+    return this.gameSettings.requiredScore;
+  }
+
+  public setRequiredScore(score: number) {
+    this.gameSettings.requiredScore = score;
+  }
+
+  public getConvertedRequiredSets() {
+    if (this.isCustomizedRequiredSets) {
+      return -1;
+    }
+    return this.gameSettings.requiredSets;
+  }
+
+  public setRequiredSets(sets: number) {
+    this.gameSettings.requiredSets = sets;
+  }
+
+  public getConvertedRequiredLegs() {
+    if (this.isCustomizedRequiredLegs) {
+      return -1;
+    }
+    return this.gameSettings.requiredLegs;
+  }
+
+  public setRequiredLegs(legs: number) {
+    this.gameSettings.requiredLegs = legs;
   }
 }

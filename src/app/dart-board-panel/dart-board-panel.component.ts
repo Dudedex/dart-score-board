@@ -25,6 +25,10 @@ export class DartBoardPanelComponent implements OnInit {
     this.dartGameData.settings = new GameSettings();
     console.log(GameModes.FREE_GAME);
     this.dartGameData.settings.gameMode = GameModes.FREE_GAME;
+    this.dartGameData.settings.requiredScore = 501;
+    this.dartGameData.settings.requiredSets = 7;
+    this.dartGameData.settings.requiredLegs = 6;
+    this.dartGameData.settings.requiredLegAdvantage = 2;
     TranslationProvider.setupTranslationProvider(this.translate, this.locale);
   }
 
