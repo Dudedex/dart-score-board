@@ -13,15 +13,18 @@ export class SetupPanelComponent implements OnInit {
   public gameSettings: GameSettings;
 
   public isCustomizedRequiredScore: boolean;
-  public isCustomizedRequiredLegs: boolean;
-  public isCustomizedRequiredSets: boolean;
+  public requiredScoreModel: number;
+  public newPlayerName = '';
+  public showGameCancelWarning = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.isCustomizedRequiredScore = false;
-    this.isCustomizedRequiredLegs = false;
-    this.isCustomizedRequiredSets = false;
+    if (this.gameSettings.requiredScore) {
+      this.requiredScoreModel = this.gameSettings.requiredScore;
+    }
   }
 
   public getGameModes() {
@@ -47,27 +50,48 @@ export class SetupPanelComponent implements OnInit {
 
   public setRequiredScore(score: number) {
     this.gameSettings.requiredScore = score;
+    this.requiredScoreModel = score;
   }
 
-  public getConvertedRequiredSets() {
-    if (this.isCustomizedRequiredSets) {
-      return -1;
+  public setGameMode(mode: number) {
+    this.gameSettings.gameMode = mode;
+  }
+
+  public addNewPlayer() {
+    if (this.newPlayerName && this.newPlayerName.trim() !== '') {
+      this.gameSettings.players.push(this.newPlayerName);
+      this.newPlayerName = '';
     }
-    return this.gameSettings.requiredSets;
   }
 
-  public setRequiredSets(sets: number) {
-    this.gameSettings.requiredSets = sets;
-  }
-
-  public getConvertedRequiredLegs() {
-    if (this.isCustomizedRequiredLegs) {
-      return -1;
+  public removePlayer(name: string) {
+    if (name && name.trim() !== '') {
+      const index = this.gameSettings.players.indexOf(name);
+      if (index > -1) {
+        this.gameSettings.players.splice(index, 1);
+      }
     }
-    return this.gameSettings.requiredLegs;
   }
 
-  public setRequiredLegs(legs: number) {
-    this.gameSettings.requiredLegs = legs;
+  public isGameReady() {
+    return this.gameSettings &&
+      this.gameSettings.requiredScore > 0 &&
+      this.gameSettings.players.length > 0 &&
+      this.gameSettings.gameMode > -1;
+  }
+
+  public startGame() {
+    if (this.isGameReady()) {
+      this.gameSettings.isGameActive = true;
+    }
+  }
+
+  public getGameCancelWarningClass() {
+    return this.showGameCancelWarning ? 'display-warning' : 'hide-warning';
+  }
+
+  public cancelGame() {
+    this.showGameCancelWarning = false;
+    this.gameSettings.isGameActive = false;
   }
 }

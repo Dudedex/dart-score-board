@@ -4,10 +4,18 @@ export class De {
       // Translation Keys
       'page.dartScoreBoard.setup.title': 'Spieleinstellung',
       'page.dartScoreBoard.setup.gameMode': 'Spielmodus',
-      'page.dartScoreBoard.setup.requiredSets': 'Erforderliche Sätze pro Spiel',
-      'page.dartScoreBoard.setup.requiredLegs': 'Erforderliche Legs pro Satz',
       'page.dartScoreBoard.setup.requiredScore': 'Erforderliche Punkte pro Leg',
+      'page.dartScoreBoard.setup.player.add': 'hinzufügen',
       'page.dartScoreBoard.setup.player': 'Spieler',
+      'page.dartScoreBoard.setup.configure.players': 'Spielermanagement',
+      'page.dartScoreBoard.setup.player.add.placeholder': 'Spielername hinzufügen',
+      'page.dartScoreBoard.setup.players.notFound': 'Noch keine Spieler hinzugefügt',
+      'page.dartScoreBoard.setup.startGame': 'Spiel starten!',
+      'page.dartScoreBoard.setup.gameInProgress.hint': 'Derzeit wird ein Spiel ausgeführt! Änderungen an den Einstellungen sind deshalb nicht möglich!',
+      'page.dartScoreBoard.setup.gameInProgress.cancelQuestion': 'Spiel abbrechen?',
+      'page.dartScoreBoard.setup.canceGame.hint': 'Sind Sie sicher, dass Sie das laufende Spiel beenden möchten?',
+      'page.dartScoreBoard.setup.canceGame.confirm': 'Spiel beenden',
+      'page.dartScoreBoard.setup.canceGame.cancel': 'Spiel fortsetzen',
 
       'page.dartScoreBoard.setup.settings.customized': 'Angepasst',
 

@@ -1,67 +1,50 @@
+<h3>
+  {{'page.dartScoreBoard.setup.title' | translate}}
+</h3>
 <div class="setup-panel">
-  <h3>
-    {{'page.dartScoreBoard.setup.title' | translate}}
-  </h3>
+  <div class="game-running-container width-100" *ngIf="gameSettings.isGameActive">
+    <div class="width-100 game-running-hint no-margin-bottom" *ngIf="!showGameCancelWarning">
+      <div class="message-container alert-warning">
+        {{'page.dartScoreBoard.setup.gameInProgress.hint' | translate}}
+        <button class="btn btn-danger warning-button-styling" (click)="showGameCancelWarning = true">
+          {{'page.dartScoreBoard.setup.gameInProgress.cancelQuestion' | translate}}
+        </button>
+      </div>
+    </div>
 
+    <div class="width-100 game-cancel-question alert alert-danger no-margin-bottom" *ngIf="showGameCancelWarning">
+      <div class="message-container alert-danger">
+        {{'page.dartScoreBoard.setup.canceGame.hint' | translate}}
+        <button class="btn btn-success warning-button-styling" (click)="showGameCancelWarning = false;">
+          {{'page.dartScoreBoard.setup.canceGame.cancel' | translate}}
+        </button>
+        <button class="btn btn-danger warning-button-styling" (click)="cancelGame()">
+          {{'page.dartScoreBoard.setup.canceGame.confirm' | translate}}
+        </button>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
   <div class="col-sm-6 no-padding">
-    <div class="radio-button-group">
+    <div class="config-group radio-button-group">
       <h4>
         {{'page.dartScoreBoard.setup.gameMode' | translate}}
       </h4>
       <div *ngFor="let gameMode of getGameModes()">
-        <input type="radio" [value]="gameMode" name="gameMode" [(ngModel)]="gameSettings.gameMode"> {{'page.dartScoreBoard.setup.gameMode.' + getGameModeValue(gameMode) | translate}}
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 no-padding">
-    <div class="radio-button-group">
-      <h4>
-        {{'page.dartScoreBoard.setup.requiredSets' | translate}}
-      </h4>
-      <div class="width-100" (click)="isCustomizedRequiredSets = false; setRequiredSets(1)">
-        <input type="radio" [value]="1" name="requiredSets" [ngModel]="getConvertedRequiredSets()"> {{'page.dartScoreBoard.setup.requiredSets.freeGame' | translate}}
-      </div>
-      <ng-container *ngFor="let i of [11,9,7,5,3]">
-        <div class="width-100" (click)="isCustomizedRequiredSets = false; setRequiredSets(i)">
-          <input type="radio" [value]="i" name="requiredSets" [ngModel]="getConvertedRequiredSets()"> {{'page.dartScoreBoard.setup.requiredSets.intro' | translate}} {{i}}
+        <div class="width-100" (click)="setGameMode(gameMode)">
+          <input type="radio" [value]="gameMode" name="gameMode" [(ngModel)]="gameSettings.gameMode">
+          {{'page.dartScoreBoard.setup.gameMode.' + getGameModeValue(gameMode) | translate}}
         </div>
-      </ng-container>
-      <div class="width-100" (click)="isCustomizedRequiredSets = true">
-        <input type="radio" [value]="true" name="requiredSets" [(ngModel)]="isCustomizedRequiredSets"> {{'page.dartScoreBoard.setup.settings.customized' | translate}}
-        <input *ngIf="isCustomizedRequiredSets" class="custom-input" type="number" name="requiredSetsInput" [(ngModel)]="gameSettings.requiredSets" [min]="1">
       </div>
     </div>
   </div>
 
   <div class="col-sm-6 no-padding">
-    <div class="radio-button-group">
-      <h4>
-        {{'page.dartScoreBoard.setup.requiredLegs' | translate}}
-      </h4>
-      <div class="width-100" (click)="isCustomizedRequiredLegs = false; setRequiredLegs(1)">
-        <input type="radio" [value]="1" name="requiredLegs" [ngModel]="getConvertedRequiredLegs()"> {{'page.dartScoreBoard.setup.requiredLegs.freeGame' | translate}}
-      </div>
-      <ng-container *ngFor="let i of [8,7,6,5,4,3]">
-        <div class="width-100" (click)="isCustomizedRequiredLegs = false; setRequiredLegs(i)">
-          <input type="radio" [value]="i" name="requiredLegs" [ngModel]="getConvertedRequiredLegs()"> {{'page.dartScoreBoard.setup.requiredLegs.intro' | translate}} {{i}}
-        </div>
-      </ng-container>
-      <div class="width-100" (click)="isCustomizedRequiredLegs = true">
-        <input type="radio" [value]="true" name="requiredLegs" [(ngModel)]="isCustomizedRequiredLegs"> {{'page.dartScoreBoard.setup.settings.customized' | translate}}
-        <input *ngIf="isCustomizedRequiredLegs" class="custom-input" type="number" name="requiredLegsInput" [(ngModel)]="gameSettings.requiredLegs" [min]="1">
-      </div>
-      <div *ngIf="gameSettings.requiredLegs > 1" class="minimal-advantage">
-        {{'page.dartScoreBoard.setup.requiredLegs.minimal' | translate}} <input class="custom-input" type="number" name="requiredLegsAdvatageInput" [(ngModel)]="gameSettings.requiredLegAdvantage" [min]="0">
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6 no-padding">
-    <div class="radio-button-group">
+    <div class="config-group radio-button-group">
       <h4>
         {{'page.dartScoreBoard.setup.requiredScore' | translate}}
       </h4>
+
       <div class="width-100" (click)="isCustomizedRequiredScore = false; setRequiredScore(901)">
         <input type="radio" [value]="901" name="requiredScore" [ngModel]="getConvertedRequiredScore()"> 901
       </div>
@@ -75,9 +58,45 @@
         <input type="radio" [value]="301" name="requiredScore" [ngModel]="getConvertedRequiredScore()"> 301
       </div>
       <div class="width-100" (click)="isCustomizedRequiredScore = true;">
-        <input type="radio" [value]="true" name="requiredScore" [(ngModel)]="isCustomizedRequiredScore"> {{'page.dartScoreBoard.setup.settings.customized' | translate}}
-        <input *ngIf="isCustomizedRequiredScore" class="custom-input" type="number" name="requiredScoreInput" [(ngModel)]="gameSettings.requiredScore" [min]="101">
+        <input type="radio" [value]="true" name="requiredScore" [(ngModel)]="isCustomizedRequiredScore">
+        {{'page.dartScoreBoard.setup.settings.customized' | translate}}
+        <input *ngIf="isCustomizedRequiredScore" class="custom-input" type="number" name="requiredScoreInput"
+               [(ngModel)]="gameSettings.requiredScore" [min]="101">
       </div>
     </div>
   </div>
+
+  <div class="col-sm-12 no-padding">
+    <div class="config-group">
+      <h4>
+        {{'page.dartScoreBoard.setup.configure.players' | translate}}
+      </h4>
+      <input class="player-input" type="text" [(ngModel)]="newPlayerName"
+             placeholder="{{'page.dartScoreBoard.setup.player.add.placeholder' | translate}}">
+      <button class="btn btn-primary add-player-button" [disabled]="!newPlayerName || newPlayerName.trim() === ''"
+              (click)="addNewPlayer()">{{'page.dartScoreBoard.setup.player.add' | translate}}
+      </button>
+      <div class="clearfix"></div>
+      <hr>
+      <div *ngIf="gameSettings.players && gameSettings.players.length > 0; else showNoPlayersHint">
+        <button class="btn btn-primary player-display" *ngFor="let player of gameSettings.players"
+                (click)="removePlayer(player)">
+          {{player}}<img class="delete-icon" src="/assets/pictures/dart-score-board/trashbin.svg">
+        </button>
+      </div>
+      <ng-template #showNoPlayersHint>
+        <div class="width-100 alert alert-danger no-margin-bottom">
+          {{'page.dartScoreBoard.setup.players.notFound' | translate}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="col-sm-12 no-padding">
+    <div class="config-group">
+      <button class="btn btn-success width-100" [disabled]="!isGameReady()" (click)="startGame()">
+        {{'page.dartScoreBoard.setup.startGame' | translate}}
+      </button>
+    </div>
+  </div>
+  <div class="clearfix"></div>
 </div>

@@ -9,6 +9,7 @@ import { TutorialPanelComponent } from './dart-board-panel/tutorial-panel/tutori
 import { SetupPanelComponent } from './dart-board-panel/setup-panel/setup-panel.component';
 import {FormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import {TranslateModule} from '@ngx-translate/core';
   ],
   imports: [
     BrowserModule,
-    TranslateModule.forRoot(),
-    FormsModule
+    FormsModule,
+    CommonModule,
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
