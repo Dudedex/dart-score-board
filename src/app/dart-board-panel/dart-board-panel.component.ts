@@ -78,7 +78,6 @@ export class DartBoardPanelComponent implements OnInit, OnChanges {
   }
 
   public saveGame() {
-    console.log(this.dartGameData.gameData);
     const a = document.createElement('a');
     let objectString = '{';
     objectString += '"settings":' + JSON.stringify(this.dartGameData.settings) + ',';
@@ -109,14 +108,11 @@ export class DartBoardPanelComponent implements OnInit, OnChanges {
   public fileLoaded(file: any) {
     const fileReader = new FileReader();
     fileReader.onload = () => {
-      const result = fileReader.result;
-      const data = result as any;
+      const data = fileReader.result as any;
       const settings = JSON.parse(data).settings;
       this.currentActivePlayer = JSON.parse(data).currentActivePlayer;
       this.currentPlayerMapKeys = JSON.parse(data).currentPlayerMapKeys;
-      console.log(this.currentPlayerMapKeys);
       const gameData = new Map<string, GameData>();
-      this.currentPlayerMapKeys = [];
       for (const gameDataObject of JSON.parse(data).gameData) {
         const gameEntry = new GameData();
         gameEntry.currentLeg.scores = [];
@@ -124,12 +120,11 @@ export class DartBoardPanelComponent implements OnInit, OnChanges {
           gameEntry.currentLeg.scores.push(score);
         }
 
-        gameData.set(gameDataObject.key, gameEntry);
+        gameData.set(gameDataObject.key, gameDataObject.value);
       }
       this.dartGameData = new DartGameData();
       this.dartGameData.gameData = gameData as Map<string, GameData>;
       this.dartGameData.settings = settings as GameSettings;
-      console.log(this.dartGameData.gameData);
     };
     fileReader.readAsText(file.target.files[0]);
   }
