@@ -21,6 +21,13 @@ export class De {
       'page.dartScoreBoard.setup.playerExists.hint': 'Dieser Spielername ist bereits vergeben',
       'page.dartScoreBoard.game.export': 'Spielstand speichern',
       'page.dartScoreBoard.game.import': 'Spielstand laden',
+      'page.dartScoreBoard.score.numberOfDarts': 'Dart Nr.',
+      'page.dartScoreBoard.score.details.show': 'Details anzeigen',
+      'page.dartScoreBoard.score.details.hide': 'Details verstecken',
+      'page.dartScoreBoard.score.details.stats': 'Statistiken',
+      'page.dartScoreBoard.score.details.throws': 'Würfe',
+      'page.dartScoreBoard.score.details.average': '3 Darts Durchschnitt',
+      'page.dartScoreBoard.score.details.dartAverage': 'Durchschnitt pro Dart',
 
       'page.dartScoreBoard.setup.settings.customized': 'Angepasst',
 

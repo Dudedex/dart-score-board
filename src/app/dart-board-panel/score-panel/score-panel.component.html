@@ -1,16 +1,72 @@
 <div class="score-panel" *ngIf="legData">
-  <div class="overflow-hidden">
+  <div class="player-name col-xs-8 text-left">
     <strong>{{playerName}}</strong>
   </div>
-  Dart #: {{legData.scores.length}}
-  <hr>
-  <hr>
-  <div class="score-entry">
-    <div class="col-xs-12 text-left no-padding"><strong>{{requiredScore}}</strong></div>
+  <div class="player-score col-xs-4 text-right">
+    <strong>{{getPendingScores(legData.scores.length - 1)}}</strong>
   </div>
-  <hr>
-  <div class="score-entry" *ngFor="let score of legData.scores; let i = index">
-    <div class="col-xs-6 text-left no-padding"><strong>{{getPendingScores(i)}}</strong></div>
-    <div class="col-xs-6 text-right no-padding">({{getScoreDisplay(score.total)}})</div>
+  <div class="player-number-of-darts col-xs-7 text-left" (click)="triggerDisplayDetails()">
+    <ng-container *ngIf="!displayDetails">
+      {{'page.dartScoreBoard.score.details.show' | translate}}
+    </ng-container>
+    <ng-container *ngIf="displayDetails">
+      {{'page.dartScoreBoard.score.details.hide' | translate}}
+    </ng-container>
+  </div>
+  <div class="player-number-of-darts col-xs-5 text-right">
+    {{'page.dartScoreBoard.score.numberOfDarts' | translate}}: {{legData.scores.length}}
+  </div>
+  <div class="player-details-{{displayDetails  ? 'show' : 'hidden'}} col-xs-12 fixed-font-height">
+    <hr>
+    <div class="col-xs-7 text-center">
+      <h4>
+        {{'page.dartScoreBoard.score.details.stats' | translate}}
+      </h4>
+      <hr>
+      <div class="col-xs-9 no-padding text-left">
+        <h5>
+          {{'page.dartScoreBoard.score.details.average' | translate}}:
+        </h5>
+      </div>
+      <div class="col-xs-3 no-padding text-right">
+        <h5>
+          <ng-container *ngIf="get3DartAverage() !== '(--)'">
+            <strong>{{get3DartAverage() | number : '.1'}}</strong>
+          </ng-container>
+          <ng-container *ngIf="get3DartAverage() === '(--)'">
+            <strong>{{get3DartAverage()}}</strong>
+          </ng-container>
+        </h5>
+      </div>
+      <div class="col-xs-9 no-padding text-left">
+        <h5>
+          {{'page.dartScoreBoard.score.details.dartAverage' | translate}}:
+        </h5>
+      </div>
+      <div class="col-xs-3 no-padding text-right">
+        <h5>
+          <ng-container *ngIf="getSingleDartAverage() !== '(--)'">
+            <strong>{{getSingleDartAverage() | number : '.1'}}</strong>
+          </ng-container>
+          <ng-container *ngIf="getSingleDartAverage() === '(--)'">
+            <strong>{{getSingleDartAverage()}}</strong>
+          </ng-container>
+        </h5>
+      </div>
+    </div>
+    <div class="col-xs-1"></div>
+    <div class="col-xs-4 text-center">
+      <h4>
+        {{'page.dartScoreBoard.score.details.throws' | translate}}
+      </h4>
+      <hr>
+      <div class="score-entry-panel">
+        <div class="score-entry" *ngFor="let score of legData.scores; let i = index">
+          <div class="col-xs-6 text-left no-padding"><strong>{{getPendingScores(i)}}</strong></div>
+          <div class="col-xs-6 text-right no-padding">({{getScoreDisplay(score.total)}})</div>
+        </div>
+        <div id="score-bottom-{{playerName}}"></div>
+      </div>
+    </div>
   </div>
 </div>

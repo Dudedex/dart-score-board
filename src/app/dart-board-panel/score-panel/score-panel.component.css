@@ -19,8 +19,39 @@ hr {
   padding: 0.5rem;
 }
 
+.score-entry-panel {
+  height: 11rem !important;
+  overflow-y: scroll;
+}
+
 .overflow-hidden {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.player-details-show {
+  height: 16rem;
+  overflow-y: scroll;
+  transition: 500ms;
+}
+
+.player-details-hidden {
+  height: 0;
+  padding-top: 0;
+  overflow-y: hidden;
+  transition: 500ms;
+}
+
+.fixed-font-height {
+  font-size: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fixed{
+  position: fixed;
+  top: 0;
 }
