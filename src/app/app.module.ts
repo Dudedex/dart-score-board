@@ -10,6 +10,7 @@ import { SetupPanelComponent } from './dart-board-panel/setup-panel/setup-panel.
 import {FormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import {CommonModule} from '@angular/common';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {CommonModule} from '@angular/common';
     BrowserModule,
     FormsModule,
     CommonModule,
+    DragDropModule,
     TranslateModule.forRoot()
   ],
   providers: [],

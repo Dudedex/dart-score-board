@@ -14,12 +14,12 @@
 
     <div class="width-100 game-cancel-question alert alert-danger no-margin-bottom" *ngIf="showGameCancelWarning">
       <div class="message-container alert-danger">
-        {{'page.dartScoreBoard.setup.canceGame.hint' | translate}}
+        {{'page.dartScoreBoard.setup.cancelGame.hint' | translate}}
         <button class="btn btn-success warning-button-styling" (click)="showGameCancelWarning = false;">
-          {{'page.dartScoreBoard.setup.canceGame.cancel' | translate}}
+          {{'page.dartScoreBoard.setup.cancelGame.cancel' | translate}}
         </button>
         <button class="btn btn-danger warning-button-styling" (click)="cancelGame()">
-          {{'page.dartScoreBoard.setup.canceGame.confirm' | translate}}
+          {{'page.dartScoreBoard.setup.cancelGame.confirm' | translate}}
         </button>
       </div>
     </div>
@@ -71,19 +71,29 @@
       <h4>
         {{'page.dartScoreBoard.setup.configure.players' | translate}}
       </h4>
+      <hr>
+      <h5>
+        {{'page.dartScoreBoard.setup.player.add.title' | translate}}
+      </h5>
       <input class="player-input" type="text" [(ngModel)]="newPlayerName"
              placeholder="{{'page.dartScoreBoard.setup.player.add.placeholder' | translate}}">
-      <button class="btn btn-primary add-player-button" [disabled]="!newPlayerName || newPlayerName.trim() === ''"
+      <button class="btn btn-primary add-player-button" [disabled]="!newPlayerName || newPlayerName.trim() === '' || doesPlayerExists()"
               (click)="addNewPlayer()">{{'page.dartScoreBoard.setup.player.add' | translate}}
       </button>
+      <p class="alert alert-warning no-margin-bottom" *ngIf="doesPlayerExists()">
+        {{'page.dartScoreBoard.setup.playerExists.hint' | translate}}
+      </p>
       <div class="clearfix"></div>
       <hr>
-      <div *ngIf="gameSettings.players && gameSettings.players.length > 0; else showNoPlayersHint">
-        <button class="btn btn-primary player-display" *ngFor="let player of gameSettings.players"
-                (click)="removePlayer(player)">
-          {{player}}<img class="delete-icon" src="/assets/pictures/dart-score-board/trashbin.svg">
+      <h5>
+        {{'page.dartScoreBoard.setup.player.order.title' | translate}}
+      </h5>
+      <div cdkDropList *ngIf="gameSettings.players && gameSettings.players.length > 0; else showNoPlayersHint" class="example-list" (cdkDropListDropped)="drop($event)">
+        <button class="btn btn-primary player-display" *ngFor="let player of gameSettings.players" cdkDrag>
+          <img class="drag-and-drop-icon" (click)="removePlayer(player)" src="/assets/pictures/dart-score-board/drag-and-drop.svg">{{player}}<img class="delete-icon" (click)="removePlayer(player)" src="/assets/pictures/dart-score-board/trashbin.svg">
         </button>
       </div>
+
       <ng-template #showNoPlayersHint>
         <div class="width-100 alert alert-danger no-margin-bottom">
           {{'page.dartScoreBoard.setup.players.notFound' | translate}}

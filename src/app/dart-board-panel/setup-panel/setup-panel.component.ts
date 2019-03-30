@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {GameSettings} from '../classes/game-setttings';
 import {GameModes} from '../classes/game-modes';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-setup-panel',
@@ -57,8 +58,12 @@ export class SetupPanelComponent implements OnInit {
     this.gameSettings.gameMode = mode;
   }
 
+  public doesPlayerExists() {
+    return this.gameSettings.players.indexOf(this.newPlayerName.trim()) > -1;
+  }
+
   public addNewPlayer() {
-    if (this.newPlayerName && this.newPlayerName.trim() !== '') {
+    if (this.newPlayerName.trim() !== '' && !this.doesPlayerExists()) {
       this.gameSettings.players.push(this.newPlayerName);
       this.newPlayerName = '';
     }
@@ -93,5 +98,9 @@ export class SetupPanelComponent implements OnInit {
   public cancelGame() {
     this.showGameCancelWarning = false;
     this.gameSettings.isGameActive = false;
+  }
+
+  public drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.gameSettings.players, event.previousIndex, event.currentIndex);
   }
 }

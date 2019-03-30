@@ -12,4 +12,7 @@ export class ScorePanelComponent implements OnInit {
   ngOnInit() {
   }
 
+  public getScoringModel() {
+
+  }
 }

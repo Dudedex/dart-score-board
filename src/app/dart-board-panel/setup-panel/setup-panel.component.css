@@ -53,6 +53,10 @@
   width: 20px;
   float: right;
 }
+.drag-and-drop-icon {
+  width: 20px;
+  float: left;
+}
 
 .no-margin-bottom {
   margin-bottom: 0;
