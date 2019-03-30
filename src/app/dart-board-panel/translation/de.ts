@@ -19,6 +19,8 @@ export class De {
       'page.dartScoreBoard.setup.cancelGame.confirm': 'Spiel beenden',
       'page.dartScoreBoard.setup.cancelGame.cancel': 'Spiel fortsetzen',
       'page.dartScoreBoard.setup.playerExists.hint': 'Dieser Spielername ist bereits vergeben',
+      'page.dartScoreBoard.game.export': 'Spielstand speichern',
+      'page.dartScoreBoard.game.import': 'Spielstand laden',
 
       'page.dartScoreBoard.setup.settings.customized': 'Angepasst',
 

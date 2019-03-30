@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ScoreEntry} from '../classes/score-entry';
 
 @Component({
   selector: 'app-dart-board',
@@ -7,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DartBoardComponent implements OnInit {
 
+  @Output()
+  public scoreEntered = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  public score(type: number, score: number) {
-    alert(type + ' ' + score + ' => ' + type * score);
+  public score(type: number, field: number) {
+    const scoreObject = new ScoreEntry();
+    scoreObject.field = field;
+    scoreObject.type = type;
+    scoreObject.total = type * field;
+    this.scoreEntered.emit(scoreObject);
   }
 
 }

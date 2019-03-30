@@ -1,0 +1,26 @@
+hr {
+  margin: 0;
+  color: black;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.score-panel {
+  padding: 0.5rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

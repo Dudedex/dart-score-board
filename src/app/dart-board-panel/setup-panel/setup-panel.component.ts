@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {GameSettings} from '../classes/game-setttings';
 import {GameModes} from '../classes/game-modes';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
@@ -12,6 +12,9 @@ export class SetupPanelComponent implements OnInit {
 
   @Input()
   public gameSettings: GameSettings;
+
+  @Output()
+  public gameStarted = new EventEmitter();
 
   public isCustomizedRequiredScore: boolean;
   public requiredScoreModel: number;
@@ -87,7 +90,7 @@ export class SetupPanelComponent implements OnInit {
 
   public startGame() {
     if (this.isGameReady()) {
-      this.gameSettings.isGameActive = true;
+      this.gameStarted.emit();
     }
   }
 

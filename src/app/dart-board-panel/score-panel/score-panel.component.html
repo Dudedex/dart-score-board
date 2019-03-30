@@ -1,3 +1,16 @@
-<textarea [ngModel]="getScoringModel()">
-
-</textarea>
+<div class="score-panel" *ngIf="legData">
+  <div class="overflow-hidden">
+    <strong>{{playerName}}</strong>
+  </div>
+  Dart #: {{legData.scores.length}}
+  <hr>
+  <hr>
+  <div class="score-entry">
+    <div class="col-xs-12 text-left no-padding"><strong>{{requiredScore}}</strong></div>
+  </div>
+  <hr>
+  <div class="score-entry" *ngFor="let score of legData.scores; let i = index">
+    <div class="col-xs-6 text-left no-padding"><strong>{{getPendingScores(i)}}</strong></div>
+    <div class="col-xs-6 text-right no-padding">({{getScoreDisplay(score.total)}})</div>
+  </div>
+</div>
