@@ -5,7 +5,7 @@
     </h3>
     <p  [innerHTML]="'page.dartScoreBoard.setup.throwInput.hint' | translate">
     </p>
-    <app-dart-board (scoreEntered)="scoreEntered($event)"></app-dart-board>
+    <app-dart-board (scoreEntered)="scoreEntered($event)" (scoreReverted)="scoreReverted()"></app-dart-board>
   </div>
   <div class="col-sm-6 no-padding no-border">
     <div class="col-sm-12">

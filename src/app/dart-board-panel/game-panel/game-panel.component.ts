@@ -35,14 +35,11 @@ export class GamePanelComponent implements OnInit {
             numberOfThrowsDone = 3;
           }
           for (let i = currentData.currentLeg.scores.length - 1; i >= currentData.currentLeg.scores.length - numberOfThrowsDone ; i--) {
-              console.log('invalidate ' + JSON.stringify(currentData.currentLeg.scores[i]));
               currentData.currentLeg.scores[i].isValid = false;
           }
 
-          const scoreEntryCount = 3 - numberOfThrowsDone;
-          console.log(scoreEntryCount);
-          for (let i = 0; i < scoreEntryCount; i++) {
-            console.log('adding dummy ');
+          const throwsLeftCount = 3 - numberOfThrowsDone;
+          for (let i = 0; i < throwsLeftCount; i++) {
             const dummyScore = new ScoreEntry();
             dummyScore.isValid = false;
             dummyScore.type = 0;
@@ -59,6 +56,34 @@ export class GamePanelComponent implements OnInit {
             this.dartGameData.currentActivePlayer = this.dartGameData.settings.players[indexOfActivePlayer + 1];
           }
         }
+      }
+    }
+  }
+
+  public scoreReverted() {
+    if (this.dartGameData.gameData && this.dartGameData.currentActivePlayer) {
+      let currentData = this.dartGameData.gameData.get(this.dartGameData.currentActivePlayer);
+      if (currentData.currentLeg && currentData.currentLeg.scores) {
+        const throwsLeftCount = 3 - currentData.currentLeg.scores.length % 3;
+        if (throwsLeftCount === 3) {
+          const indexOfActivePlayer = this.dartGameData.settings.players.indexOf(this.dartGameData.currentActivePlayer);
+          if (indexOfActivePlayer === 0) {
+            this.dartGameData.currentActivePlayer = this.dartGameData.settings.players[this.dartGameData.settings.players.length - 1];
+          } else {
+            this.dartGameData.currentActivePlayer = this.dartGameData.settings.players[indexOfActivePlayer - 1];
+          }
+        }
+        currentData = this.dartGameData.gameData.get(this.dartGameData.currentActivePlayer);
+        let toDeletedRows = 0;
+        for (let i = currentData.currentLeg.scores.length - 1; i >= 0; i--) {
+          const score = currentData.currentLeg.scores[i];
+          toDeletedRows += 1;
+          if (score.type !== 0) {
+            break;
+          }
+        }
+        currentData.currentLeg.scores.splice(currentData.currentLeg.scores.length - toDeletedRows, toDeletedRows);
+
       }
     }
   }

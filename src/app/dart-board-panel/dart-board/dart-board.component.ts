@@ -11,6 +11,9 @@ export class DartBoardComponent implements OnInit {
   @Output()
   public scoreEntered = new EventEmitter();
 
+  @Output()
+  public scoreReverted = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -23,6 +26,10 @@ export class DartBoardComponent implements OnInit {
     scoreObject.total = type * field;
     scoreObject.isValid = true;
     this.scoreEntered.emit(scoreObject);
+  }
+
+  public revertScore() {
+    this.scoreReverted.emit();
   }
 
 }

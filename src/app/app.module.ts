@@ -13,6 +13,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { GamePanelComponent } from './dart-board-panel/game-panel/game-panel.component';
 import { ExportImportDataPanelComponent } from './dart-board-panel/export-import-data-panel/export-import-data-panel.component';
 import {ScoreService} from './dart-board-panel/services/score.service';
+import {AngularSvgIconModule} from 'angular-svg-icon';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import {ScoreService} from './dart-board-panel/services/score.service';
     BrowserModule,
     FormsModule,
     CommonModule,
+    AngularSvgIconModule,
+    HttpClientModule,
     DragDropModule,
     TranslateModule.forRoot()
   ],

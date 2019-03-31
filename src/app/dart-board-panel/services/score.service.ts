@@ -27,14 +27,20 @@ export class ScoreService {
 
     const isFirstValidEntry = this.isFirstValidEntry(allScores);
     if ([GameModes.DOUBLE_IN, GameModes.DOUBLE_IN_AND_OUT].indexOf(gameMode) > -1 && isFirstValidEntry) {
-      if (currentScore.type === 2) {
-        return ScoreValidator.VALID;
+      if (currentScore.type === 2 && cummulatedScores >= 0) {
+        if (cummulatedScores >= 0) {
+          return ScoreValidator.VALID;
+        }
+        return ScoreValidator.SET_INVALID;
       }
       return ScoreValidator.SINGLE_INVALID;
     }
     if ([GameModes.TRIPPLE_IN, GameModes.TRIPPLE_IN_AND_OUT].indexOf(gameMode) > -1  && isFirstValidEntry) {
       if (currentScore.type === 3) {
-        return ScoreValidator.VALID;
+        if (cummulatedScores >= 0) {
+          return ScoreValidator.VALID;
+        }
+        return ScoreValidator.SET_INVALID;
       }
       return ScoreValidator.SINGLE_INVALID;
     }

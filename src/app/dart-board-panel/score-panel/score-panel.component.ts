@@ -32,7 +32,6 @@ export class ScorePanelComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.displayDetails = this.isActive;
-    console.log('init');
   }
 
   ngOnChanges(changes: SimpleChanges): void {
