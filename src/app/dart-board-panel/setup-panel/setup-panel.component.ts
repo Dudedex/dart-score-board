@@ -53,11 +53,17 @@ export class SetupPanelComponent implements OnInit {
   }
 
   public setRequiredScore(score: number) {
+    if (this.gameSettings.isGameActive) {
+      return;
+    }
     this.gameSettings.requiredScore = score;
     this.requiredScoreModel = score;
   }
 
   public setGameMode(mode: number) {
+    if (this.gameSettings.isGameActive) {
+      return;
+    }
     this.gameSettings.gameMode = mode;
   }
 
@@ -66,6 +72,9 @@ export class SetupPanelComponent implements OnInit {
   }
 
   public addNewPlayer() {
+    if (this.gameSettings.isGameActive) {
+      return;
+    }
     if (this.newPlayerName.trim() !== '' && !this.doesPlayerExists()) {
       this.gameSettings.players.push(this.newPlayerName);
       this.newPlayerName = '';
@@ -73,6 +82,9 @@ export class SetupPanelComponent implements OnInit {
   }
 
   public removePlayer(name: string) {
+    if (this.gameSettings.isGameActive) {
+      return;
+    }
     if (name && name.trim() !== '') {
       const index = this.gameSettings.players.indexOf(name);
       if (index > -1) {
@@ -89,6 +101,9 @@ export class SetupPanelComponent implements OnInit {
   }
 
   public startGame() {
+    if (this.gameSettings.isGameActive) {
+      return;
+    }
     if (this.isGameReady()) {
       this.gameStarted.emit();
     }
@@ -104,6 +119,9 @@ export class SetupPanelComponent implements OnInit {
   }
 
   public drop(event: CdkDragDrop<string[]>) {
+    if (this.gameSettings.isGameActive) {
+      return;
+    }
     moveItemInArray(this.gameSettings.players, event.previousIndex, event.currentIndex);
   }
 }

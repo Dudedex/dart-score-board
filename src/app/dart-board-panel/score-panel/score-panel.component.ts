@@ -2,6 +2,7 @@ import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChil
 import {GameData} from '../classes/game-data';
 import {LegData} from '../classes/leg-data';
 import {ScoreEntry} from '../classes/score-entry';
+import {ScoreService} from '../services/score.service';
 
 @Component({
   selector: 'app-score-panel',
@@ -26,7 +27,7 @@ export class ScorePanelComponent implements OnInit, OnChanges {
 
   public displayDetails: boolean = false;
 
-  constructor() {
+  constructor(private scoreService: ScoreService) {
   }
 
   ngOnInit() {
@@ -44,14 +45,7 @@ export class ScorePanelComponent implements OnInit, OnChanges {
   }
 
   public getPendingScores(index: number) {
-    let total = this.requiredScore;
-    if (index > this.legData.scores.length - 1) {
-      index = this.legData.scores.length - 1;
-    }
-    for (let i = 0; i <= index; i++) {
-      total = total - this.legData.scores[i].total;
-    }
-    return total;
+    return this.scoreService.getPendingScores(index, this.legData.scores, this.requiredScore);
   }
 
   public getScoreDisplay(score: number) {

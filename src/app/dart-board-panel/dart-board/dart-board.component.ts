@@ -21,6 +21,7 @@ export class DartBoardComponent implements OnInit {
     scoreObject.field = field;
     scoreObject.type = type;
     scoreObject.total = type * field;
+    scoreObject.isValid = true;
     this.scoreEntered.emit(scoreObject);
   }
 

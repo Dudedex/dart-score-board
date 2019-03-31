@@ -9,7 +9,8 @@
   </div>
   <div class="player-number-of-darts col-xs-6 text-left" (click)="triggerDisplayDetails()">
     <ng-container *ngIf="!displayDetails">
-      <img src="./assets/pictures/dart-score-board/details.svg" class="menu-icon-{{isActive ? 'active' : 'inactive'}} upside-down">
+      <img src="./assets/pictures/dart-score-board/details.svg"
+           class="menu-icon-{{isActive ? 'active' : 'inactive'}} upside-down">
     </ng-container>
     <ng-container *ngIf="displayDetails">
       <img src="./assets/pictures/dart-score-board/details.svg" class="menu-icon-{{isActive ? 'active' : 'inactive'}}">
@@ -63,10 +64,12 @@
         {{'page.dartScoreBoard.score.details.throws' | translate}}
       </h4>
       <hr>
-      <div class="score-entry-panel"#scoreEntryPanel>
+      <div class="score-entry-panel" #scoreEntryPanel>
         <div class="score-entry" *ngFor="let score of legData.scores; let i = index">
-          <div class="col-xs-6 text-left no-padding"><strong>{{getPendingScores(i)}}</strong></div>
-          <div class="col-xs-6 text-right no-padding">({{getScoreDisplay(score.total)}})</div>
+          <div class="col-xs-12 no-padding {{!score.isValid ? 'alert-danger' : ''}} {{getPendingScores(i) === 0 ? 'alert-success': ''}}">
+            <div class="col-xs-6 text-left no-padding"><strong>{{getPendingScores(i)}}</strong></div>
+            <div class="col-xs-6 text-right no-padding">({{getScoreDisplay(score.total)}})</div>
+          </div>
         </div>
         <div id="score-bottom-{{playerName}}"></div>
       </div>
