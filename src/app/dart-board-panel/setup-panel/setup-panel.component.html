@@ -75,12 +75,12 @@
       <h5>
         {{'page.dartScoreBoard.setup.player.add.title' | translate}}
       </h5>
-      <input class="player-input" type="text" [(ngModel)]="newPlayerName"
-             placeholder="{{'page.dartScoreBoard.setup.player.add.placeholder' | translate}}">
       <button class="btn btn-primary add-player-button" [disabled]="!newPlayerName || newPlayerName.trim() === '' || doesPlayerExists()"
               (click)="addNewPlayer()">{{'page.dartScoreBoard.setup.player.add' | translate}}
       </button>
-      <p class="alert alert-warning no-margin-bottom" *ngIf="doesPlayerExists()">
+      <input class="player-input form-control" type="text" [(ngModel)]="newPlayerName"
+             placeholder="{{'page.dartScoreBoard.setup.player.add.placeholder' | translate}}">
+      <p class="alert alert-warning no-margin-bottom player-double-alert" *ngIf="doesPlayerExists()">
         {{'page.dartScoreBoard.setup.playerExists.hint' | translate}}
       </p>
       <div class="clearfix"></div>

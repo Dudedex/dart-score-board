@@ -68,15 +68,19 @@ hr {
 }
 
 .menu-icon-inactive {
+  transform: rotate(90deg);
   width: 16px;
   margin-top: -2px;
+  margin-right: 0.5rem;
 }
 
 .menu-icon-active {
+  transform: rotate(90deg);
   width: 24px;
   margin-top: -5px;
+  margin-right: 0.5rem;
 }
 
 .upside-down {
-  transform: rotate(180deg);
+  transform: rotate(270deg);
 }

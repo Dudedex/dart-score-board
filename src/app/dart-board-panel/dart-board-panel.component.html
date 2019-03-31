@@ -1,10 +1,10 @@
 <div class="main-panel">
-  <app-tutorial-panel></app-tutorial-panel>
-  <hr>
   <app-setup-panel [gameSettings]="dartGameData.settings" (gameStarted)="startNewGame()"></app-setup-panel>
   <hr>
   <app-game-panel [dartGameData]="dartGameData" #gamePanel></app-game-panel>
-  <hr>
+  <div class="col-xs-12">
+    <hr>
+  </div>
   <app-export-import-data-panel [dartGameData]="dartGameData"></app-export-import-data-panel>
 </div>
 

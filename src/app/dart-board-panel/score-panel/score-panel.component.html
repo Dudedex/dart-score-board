@@ -9,10 +9,10 @@
   </div>
   <div class="player-number-of-darts col-xs-6 text-left" (click)="triggerDisplayDetails()">
     <ng-container *ngIf="!displayDetails">
-      <img src="./assets/pictures/dart-score-board/menu.png" class="menu-icon-{{isActive ? 'active' : 'inactive'}} upside-down">
+      <img src="./assets/pictures/dart-score-board/details.svg" class="menu-icon-{{isActive ? 'active' : 'inactive'}} upside-down">
     </ng-container>
     <ng-container *ngIf="displayDetails">
-      <img src="./assets/pictures/dart-score-board/menu.png" class="menu-icon-{{isActive ? 'active' : 'inactive'}}">
+      <img src="./assets/pictures/dart-score-board/details.svg" class="menu-icon-{{isActive ? 'active' : 'inactive'}}">
     </ng-container>
     {{'page.dartScoreBoard.score.details' | translate}}
   </div>

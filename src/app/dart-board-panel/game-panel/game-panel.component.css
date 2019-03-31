@@ -2,6 +2,10 @@
   padding: 0;
 }
 
+.no-margin {
+  margin: 0;
+}
+
 .player-active {
   font-size: 24px;
   border: 2px solid blue;

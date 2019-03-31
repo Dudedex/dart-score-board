@@ -56,4 +56,8 @@ export class GamePanelComponent implements OnInit {
     return this.dartGameData.currentActivePlayer === player;
   }
 
+  public getPlayerObject(){
+    const dartCount = 3 - this.dartGameData.gameData.get(this.dartGameData.currentActivePlayer).currentLeg.scores.length % 3;
+    return {'name': this.dartGameData.currentActivePlayer, 'dartCount': dartCount};
+  }
 }

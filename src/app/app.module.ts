@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { DartBoardPanelComponent } from './dart-board-panel/dart-board-panel.component';
 import { DartBoardComponent } from './dart-board-panel/dart-board/dart-board.component';
 import { ScorePanelComponent } from './dart-board-panel/score-panel/score-panel.component';
-import { TutorialPanelComponent } from './dart-board-panel/tutorial-panel/tutorial-panel.component';
 import { SetupPanelComponent } from './dart-board-panel/setup-panel/setup-panel.component';
 import {FormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
@@ -20,7 +19,6 @@ import { ExportImportDataPanelComponent } from './dart-board-panel/export-import
     DartBoardPanelComponent,
     DartBoardComponent,
     ScorePanelComponent,
-    TutorialPanelComponent,
     SetupPanelComponent,
     GamePanelComponent,
     ExportImportDataPanelComponent

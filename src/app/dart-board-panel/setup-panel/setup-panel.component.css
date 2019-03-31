@@ -41,8 +41,17 @@
 
 .add-player-button {
   width: 38%;
-  margin-top: 0.5rem;
+  float: right;
   margin-bottom: 0.5rem;
+}
+
+.player-input {
+  max-width: 60%;
+  margin-right: 2%;
+}
+
+.player-double-alert {
+  margin-top: 0.5rem;
 }
 
 .clearfix {
@@ -60,11 +69,6 @@
 
 .no-margin-bottom {
   margin-bottom: 0;
-}
-
-.player-input {
-  min-width: 60%;
-  margin-right: 2%;
 }
 
 .game-running-container {
