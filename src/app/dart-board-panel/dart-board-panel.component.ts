@@ -6,6 +6,7 @@ import {TranslationProvider} from './translation/translation-provider';
 import {GameModes} from './classes/game-modes';
 import {GameData} from './classes/game-data';
 import {ScoreEntry} from './classes/score-entry';
+import {GamePanelComponent} from './game-panel/game-panel.component';
 
 @Component({
   selector: 'app-dart-board-panel',
@@ -14,17 +15,15 @@ import {ScoreEntry} from './classes/score-entry';
 })
 export class DartBoardPanelComponent implements OnInit, OnChanges {
 
-  @ViewChild('loadGameButton')
-  public importGameButton: ElementRef;
+  @ViewChild('gamePanel')
+  public gamePanel: GamePanelComponent;
 
   @Input()
   public locale: string;
 
   public dartGameData: DartGameData;
-  public currentActivePlayer: string;
-  public currentPlayerMapKeys: string[];
 
-  constructor(private translate: TranslateService, private cdRef: ChangeDetectorRef ) {
+  constructor(private translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -33,6 +32,7 @@ export class DartBoardPanelComponent implements OnInit, OnChanges {
     this.dartGameData.settings.gameMode = GameModes.FREE_GAME;
     this.dartGameData.settings.requiredScore = 501;
     this.dartGameData.settings.players = [];
+    this.dartGameData.currentPlayerMapKeys = [];
     TranslationProvider.setupTranslationProvider(this.translate, this.locale);
   }
 
@@ -40,93 +40,6 @@ export class DartBoardPanelComponent implements OnInit, OnChanges {
   }
 
   public startNewGame() {
-    this.currentPlayerMapKeys = [];
-    const playerMap = new Map<string, GameData>();
-    let firstPlayerAssigned = false;
-    for (const player of this.dartGameData.settings.players) {
-      playerMap.set(player, new GameData());
-      if (!firstPlayerAssigned) {
-        this.currentActivePlayer = player;
-        firstPlayerAssigned = true;
-      }
-    }
-    this.dartGameData.gameData = playerMap;
-    this.currentPlayerMapKeys = Array.from(playerMap.keys());
-    this.dartGameData.settings.isGameActive = true;
-    this.cdRef.detectChanges();
+    this.gamePanel.startNewGame();
   }
-
-  public scoreEntered(event: ScoreEntry) {
-    if (this.dartGameData.gameData && this.currentActivePlayer) {
-      const currentData = this.dartGameData.gameData.get(this.currentActivePlayer);
-      if (currentData.currentLeg && currentData.currentLeg.scores) {
-        currentData.currentLeg.scores.push(event);
-        if (currentData.currentLeg.scores.length % 3 === 0) {
-          const indexOfActivePlayer = this.dartGameData.settings.players.indexOf(this.currentActivePlayer);
-          if (indexOfActivePlayer === this.dartGameData.settings.players.length - 1) {
-            this.currentActivePlayer = this.dartGameData.settings.players[0];
-          } else {
-            this.currentActivePlayer = this.dartGameData.settings.players[indexOfActivePlayer + 1];
-          }
-        }
-      }
-    }
-  }
-
-  public isPlayerActive(player: string) {
-    return this.currentActivePlayer === player;
-  }
-
-  public saveGame() {
-    const a = document.createElement('a');
-    let objectString = '{';
-    objectString += '"settings":' + JSON.stringify(this.dartGameData.settings) + ',';
-    objectString += '"currentPlayerMapKeys": ' + JSON.stringify(this.currentPlayerMapKeys) + ',';
-    objectString += '"currentActivePlayer": ' + JSON.stringify(this.currentActivePlayer) + ',';
-    objectString += '"gameData": [';
-    let isFirst = true;
-    for (const key of Array.from(this.dartGameData.gameData.keys())) {
-      if (!isFirst) {
-        objectString += ',';
-      } else {
-        isFirst = false;
-      }
-      const line = JSON.stringify(this.dartGameData.gameData.get(key));
-      objectString += '{"key": "' + key + '",';
-      objectString += '"value": ' + line + '}';
-    }
-    objectString += ']}';
-    a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(objectString));
-    a.setAttribute('download', 'game-data-' + new Date().getTime() + '.json');
-    a.click();
-  }
-
-  public loadGame() {
-    this.importGameButton.nativeElement.click();
-  }
-
-  public fileLoaded(file: any) {
-    const fileReader = new FileReader();
-    fileReader.onload = () => {
-      const data = fileReader.result as any;
-      const settings = JSON.parse(data).settings;
-      this.currentActivePlayer = JSON.parse(data).currentActivePlayer;
-      this.currentPlayerMapKeys = JSON.parse(data).currentPlayerMapKeys;
-      const gameData = new Map<string, GameData>();
-      for (const gameDataObject of JSON.parse(data).gameData) {
-        const gameEntry = new GameData();
-        gameEntry.currentLeg.scores = [];
-        for (const score of gameDataObject.value.currentLeg.scores) {
-          gameEntry.currentLeg.scores.push(score);
-        }
-
-        gameData.set(gameDataObject.key, gameDataObject.value);
-      }
-      this.dartGameData = new DartGameData();
-      this.dartGameData.gameData = gameData as Map<string, GameData>;
-      this.dartGameData.settings = settings as GameSettings;
-    };
-    fileReader.readAsText(file.target.files[0]);
-  }
-
 }

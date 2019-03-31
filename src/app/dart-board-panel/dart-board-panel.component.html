@@ -1,34 +1,10 @@
-<div>
+<div class="main-panel">
   <app-tutorial-panel></app-tutorial-panel>
   <hr>
   <app-setup-panel [gameSettings]="dartGameData.settings" (gameStarted)="startNewGame()"></app-setup-panel>
   <hr>
-  <div class="col-sm-6 no-padding">
-    <app-dart-board (scoreEntered)="scoreEntered($event)"></app-dart-board>
-  </div>
-  <div class="col-sm-6 no-padding no-border" *ngIf="dartGameData.settings.isGameActive && currentPlayerMapKeys">
-    <div class="col-xs-12">
-      <h3 class="no-margin">{{'page.dartScoreBoard.setup.player' | translate}}: <strong>{{currentActivePlayer}}</strong></h3>
-    </div>
-    <hr>
-    <div class="col-xs-12" *ngFor="let player of currentPlayerMapKeys">
-      <div class="no-border no-padding col-xs-12 {{ isPlayerActive(player) ? 'player-active' : 'player-inactive'}}">
-        <app-score-panel [playerName]="player" [legData]="dartGameData.gameData.get(player).currentLeg"
-                         [requiredScore]="dartGameData.settings.requiredScore"
-                         [isActive]="isPlayerActive(player)"></app-score-panel>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-xs-12">
-    <button class="btn btn-primary col-sm-5 col-xs-5" (click)="saveGame()">
-      {{'page.dartScoreBoard.game.export' | translate}}
-    </button>
-
-    <button class="btn btn-success col-sm-5 col-xs-5 right" (click)="loadGame()">
-      {{'page.dartScoreBoard.game.import' | translate}}
-    </button>
-  </div>
+  <app-game-panel [dartGameData]="dartGameData" #gamePanel></app-game-panel>
+  <hr>
+  <app-export-import-data-panel [dartGameData]="dartGameData"></app-export-import-data-panel>
 </div>
-<input class="btn btn-primary" type="file" accept="application/json" style="display: none" (change)="fileLoaded($event)"
-       #loadGameButton/>
+

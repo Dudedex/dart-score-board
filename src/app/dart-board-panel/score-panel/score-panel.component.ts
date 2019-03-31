@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {GameData} from '../classes/game-data';
 import {LegData} from '../classes/leg-data';
 import {ScoreEntry} from '../classes/score-entry';
@@ -20,6 +20,9 @@ export class ScorePanelComponent implements OnInit, OnChanges {
 
   @Input()
   public isActive: boolean;
+
+  @ViewChild('scoreEntryPanel')
+  public scoreEntryPanel: ElementRef;
 
   public displayDetails: boolean = false;
 
@@ -84,14 +87,6 @@ export class ScorePanelComponent implements OnInit, OnChanges {
   }
 
   public scrollToScoreBottom() {
-    /**
-     * TODO
-     * setTimeout( () => {
-      const element = document.getElementById('score-bottom-' + this.playerName);
-      element.scrollTo(d);
-    }, 1000);
-     +https://stackoverflow.com/questions/28969592/scroll-to-element-inside-scrollable-div
-     */
-
+    this.scoreEntryPanel.nativeElement.scrollTop = this.scoreEntryPanel.nativeElement.scrollHeight;
   }
 }

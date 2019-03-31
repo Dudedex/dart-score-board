@@ -1,19 +1,22 @@
 <div class="score-panel" *ngIf="legData">
+  <div class="arrow-container" *ngIf="isActive">
+  </div>
   <div class="player-name col-xs-8 text-left">
     <strong>{{playerName}}</strong>
   </div>
   <div class="player-score col-xs-4 text-right">
     <strong>{{getPendingScores(legData.scores.length - 1)}}</strong>
   </div>
-  <div class="player-number-of-darts col-xs-7 text-left" (click)="triggerDisplayDetails()">
+  <div class="player-number-of-darts col-xs-6 text-left" (click)="triggerDisplayDetails()">
     <ng-container *ngIf="!displayDetails">
-      {{'page.dartScoreBoard.score.details.show' | translate}}
+      <img src="./assets/pictures/dart-score-board/menu.png" class="menu-icon-{{isActive ? 'active' : 'inactive'}} upside-down">
     </ng-container>
     <ng-container *ngIf="displayDetails">
-      {{'page.dartScoreBoard.score.details.hide' | translate}}
+      <img src="./assets/pictures/dart-score-board/menu.png" class="menu-icon-{{isActive ? 'active' : 'inactive'}}">
     </ng-container>
+    {{'page.dartScoreBoard.score.details' | translate}}
   </div>
-  <div class="player-number-of-darts col-xs-5 text-right">
+  <div class="player-number-of-darts col-xs-6 text-right">
     {{'page.dartScoreBoard.score.numberOfDarts' | translate}}: {{legData.scores.length}}
   </div>
   <div class="player-details-{{displayDetails  ? 'show' : 'hidden'}} col-xs-12 fixed-font-height">
@@ -60,7 +63,7 @@
         {{'page.dartScoreBoard.score.details.throws' | translate}}
       </h4>
       <hr>
-      <div class="score-entry-panel">
+      <div class="score-entry-panel"#scoreEntryPanel>
         <div class="score-entry" *ngFor="let score of legData.scores; let i = index">
           <div class="col-xs-6 text-left no-padding"><strong>{{getPendingScores(i)}}</strong></div>
           <div class="col-xs-6 text-right no-padding">({{getScoreDisplay(score.total)}})</div>

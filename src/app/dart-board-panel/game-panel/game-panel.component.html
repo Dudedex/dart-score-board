@@ -1,0 +1,14 @@
+<div *ngIf="dartGameData">
+  <div class="col-sm-6 no-padding">
+    <app-dart-board (scoreEntered)="scoreEntered($event)"></app-dart-board>
+  </div>
+  <div class="col-sm-6 no-padding no-border" *ngIf="dartGameData.settings.isGameActive && dartGameData.currentPlayerMapKeys">
+    <div class="col-xs-12" *ngFor="let player of dartGameData.currentPlayerMapKeys">
+      <div class="no-border no-padding col-xs-12 {{ isPlayerActive(player) ? 'player-active' : 'player-inactive'}}">
+        <app-score-panel [playerName]="player" [legData]="dartGameData.gameData.get(player).currentLeg"
+                         [requiredScore]="dartGameData.settings.requiredScore"
+                         [isActive]="isPlayerActive(player)"></app-score-panel>
+      </div>
+    </div>
+  </div>
+</div>

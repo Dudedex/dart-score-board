@@ -4,4 +4,6 @@ import {GameData} from './game-data';
 export class DartGameData {
   public settings: GameSettings;
   public gameData: Map<string, GameData>;
+  public currentActivePlayer: string;
+  public currentPlayerMapKeys: string[];
 }

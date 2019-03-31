@@ -1,28 +1,11 @@
-.no-padding {
-  padding: 0;
-}
-
-.no-margin {
-  margin: 0;
-}
-
-.player-active {
-  font-size: 24px;
-  border: 2px solid blue;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
-}
-
-.player-inactive {
-  border-radius: 5px;
-  border: 2px solid #e0e0e0;
-  margin-bottom: 0.5rem;
-}
-
-.right {
-  float: right;
-}
-
 .hr {
   padding: 0;
+}
+
+.main-panel {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 3rem;
+  min-width: 350px;
 }

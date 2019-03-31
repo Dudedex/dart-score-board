@@ -55,3 +55,28 @@ hr {
   position: fixed;
   top: 0;
 }
+
+.arrow-container {
+  position: absolute;
+  left: 0;
+  width: 0;
+  top:0;
+  height: 0;
+  border-style: solid;
+  border-width: 34px 0 34px 12px;
+  border-color: transparent transparent transparent blue;
+}
+
+.menu-icon-inactive {
+  width: 16px;
+  margin-top: -2px;
+}
+
+.menu-icon-active {
+  width: 24px;
+  margin-top: -5px;
+}
+
+.upside-down {
+  transform: rotate(180deg);
+}

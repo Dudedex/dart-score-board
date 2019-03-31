@@ -11,6 +11,8 @@ import {FormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import {CommonModule} from '@angular/common';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { GamePanelComponent } from './dart-board-panel/game-panel/game-panel.component';
+import { ExportImportDataPanelComponent } from './dart-board-panel/export-import-data-panel/export-import-data-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     DartBoardComponent,
     ScorePanelComponent,
     TutorialPanelComponent,
-    SetupPanelComponent
+    SetupPanelComponent,
+    GamePanelComponent,
+    ExportImportDataPanelComponent
   ],
   imports: [
     BrowserModule,
