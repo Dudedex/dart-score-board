@@ -57,15 +57,17 @@ export class ExportImportDataPanelComponent implements OnInit {
       const currentActivePlayer = JSON.parse(data).currentActivePlayer;
       const currentPlayerMapKeys = JSON.parse(data).currentPlayerMapKeys;
       const gameData = new Map<string, GameData>();
+      let throwsDone = 0;
       for (const gameDataObject of JSON.parse(data).gameData) {
         const gameEntry = new GameData();
         gameEntry.currentLeg.scores = [];
         for (const score of gameDataObject.value.currentLeg.scores) {
           gameEntry.currentLeg.scores.push(score);
         }
-
+        throwsDone += gameEntry.currentLeg.scores.length;
         gameData.set(gameDataObject.key, gameDataObject.value);
       }
+      this.dartGameData.throwsDone = throwsDone;
       this.dartGameData.currentActivePlayer = currentActivePlayer;
       this.dartGameData.currentPlayerMapKeys = currentPlayerMapKeys;
       this.dartGameData.gameData = gameData as Map<string, GameData>;

@@ -6,4 +6,5 @@ export class DartGameData {
   public gameData: Map<string, GameData>;
   public currentActivePlayer: string;
   public currentPlayerMapKeys: string[];
+  public throwsDone: number;
 }

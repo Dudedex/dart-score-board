@@ -1,11 +1,10 @@
-<div class="col-xs-12">
-  <button class="btn btn-primary col-sm-5 col-xs-6" (click)="saveGame()">
-    {{'page.dartScoreBoard.game.export' | translate}}
-  </button>
-
-  <button class="btn btn-success col-sm-5 col-xs-5 right" (click)="loadGame()">
-    {{'page.dartScoreBoard.game.import' | translate}}
-  </button>
+<div class="col-xs-12 config-group">
+    <button class="btn btn-primary col-xs-12 margin-bottom" *ngIf="dartGameData && dartGameData.settings && dartGameData.settings.isGameActive" (click)="saveGame()">
+      {{'page.dartScoreBoard.game.export' | translate}}
+    </button>
+    <button class="btn btn-success col-xs-12" (click)="loadGame()">
+      {{'page.dartScoreBoard.game.import' | translate}}
+    </button>
 </div>
 <input class="btn btn-primary" type="file" accept="application/json" style="display: none" (change)="fileLoaded($event)"
        #loadGameButton/>

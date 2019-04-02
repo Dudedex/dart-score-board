@@ -56,6 +56,7 @@ export class GamePanelComponent implements OnInit {
             this.dartGameData.currentActivePlayer = this.dartGameData.settings.players[indexOfActivePlayer + 1];
           }
         }
+        this.dartGameData.throwsDone += 1;
       }
     }
   }
@@ -67,11 +68,14 @@ export class GamePanelComponent implements OnInit {
         const throwsLeftCount = 3 - currentData.currentLeg.scores.length % 3;
         if (throwsLeftCount === 3) {
           const indexOfActivePlayer = this.dartGameData.settings.players.indexOf(this.dartGameData.currentActivePlayer);
+          let nextPlayer;
+          console.log('switching player')
           if (indexOfActivePlayer === 0) {
-            this.dartGameData.currentActivePlayer = this.dartGameData.settings.players[this.dartGameData.settings.players.length - 1];
+            nextPlayer = this.dartGameData.settings.players[this.dartGameData.settings.players.length - 1];
           } else {
-            this.dartGameData.currentActivePlayer = this.dartGameData.settings.players[indexOfActivePlayer - 1];
+            nextPlayer = this.dartGameData.settings.players[indexOfActivePlayer - 1];
           }
+          this.dartGameData.currentActivePlayer = nextPlayer;
         }
         currentData = this.dartGameData.gameData.get(this.dartGameData.currentActivePlayer);
         let toDeletedRows = 0;
@@ -83,7 +87,7 @@ export class GamePanelComponent implements OnInit {
           }
         }
         currentData.currentLeg.scores.splice(currentData.currentLeg.scores.length - toDeletedRows, toDeletedRows);
-
+        this.dartGameData.throwsDone -= 1;
       }
     }
   }
@@ -99,6 +103,7 @@ export class GamePanelComponent implements OnInit {
         firstPlayerAssigned = true;
       }
     }
+    this.dartGameData.throwsDone = 0;
     this.dartGameData.gameData = playerMap;
     this.dartGameData.currentPlayerMapKeys = Array.from(playerMap.keys());
     this.dartGameData.settings.isGameActive = true;

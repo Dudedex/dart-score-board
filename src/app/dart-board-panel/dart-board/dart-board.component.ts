@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ScoreEntry} from '../classes/score-entry';
 
 @Component({
@@ -13,6 +13,9 @@ export class DartBoardComponent implements OnInit {
 
   @Output()
   public scoreReverted = new EventEmitter();
+
+  @Input()
+  public throwsDone = 0;
 
   constructor() { }
 

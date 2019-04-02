@@ -188,7 +188,7 @@
     </g>
   </svg>
 
-  <button class="btn btn-danger right" (click)="revertScore()">
+  <button class="btn btn-danger right" *ngIf="throwsDone > 0" (click)="revertScore()">
     <svg-icon src="/assets/pictures/dart-score-board/revert.svg" class="offset-top" [svgStyle]="{ 'width.px':24, 'fill': '#FFFFFF', 'height.px':20}"></svg-icon>
   </button>
 </div>
