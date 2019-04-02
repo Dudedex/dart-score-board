@@ -1,0 +1,11 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+ * Public API Surface of dart-score-board-library
+ */
+export { DartScoreBoardLibraryService } from './lib/dart-score-board-library.service';
+export { DartScoreBoardLibraryComponent } from './lib/dart-score-board-library.component';
+export { DartScoreBoardLibraryModule } from './lib/dart-score-board-library.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2RhcnQtc2NvcmUtYm9hcmQtbGlicmFyeS8iLCJzb3VyY2VzIjpbInB1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUlBLDZDQUFjLHdDQUF3QyxDQUFDO0FBQ3ZELCtDQUFjLDBDQUEwQyxDQUFDO0FBQ3pELDRDQUFjLHVDQUF1QyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBkYXJ0LXNjb3JlLWJvYXJkLWxpYnJhcnlcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9kYXJ0LXNjb3JlLWJvYXJkLWxpYnJhcnkuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9kYXJ0LXNjb3JlLWJvYXJkLWxpYnJhcnkuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2RhcnQtc2NvcmUtYm9hcmQtbGlicmFyeS5tb2R1bGUnO1xuIl19

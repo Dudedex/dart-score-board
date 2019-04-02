@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "dart-score-board-library": {
+      "root": "projects/dart-score-board-library",
+      "sourceRoot": "projects/dart-score-board-library/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dart-score-board-library/tsconfig.lib.json",
+            "project": "projects/dart-score-board-library/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dart-score-board-library/src/test.ts",
+            "tsConfig": "projects/dart-score-board-library/tsconfig.spec.json",
+            "karmaConfig": "projects/dart-score-board-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dart-score-board-library/tsconfig.lib.json",
+              "projects/dart-score-board-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "dart-score-board"

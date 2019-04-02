@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "dart-score-board-library": [
+        "dist/dart-score-board-library"
+      ],
+      "dart-score-board-library/*": [
+        "dist/dart-score-board-library/*"
+      ]
+    }
   }
 }

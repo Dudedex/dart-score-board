@@ -1,0 +1,45 @@
+export declare class De {
+    static translation(): {
+        'page.dartScoreBoard.setup.title': string;
+        'page.dartScoreBoard.setup.gameMode': string;
+        'page.dartScoreBoard.setup.requiredScore': string;
+        'page.dartScoreBoard.setup.player.add': string;
+        'page.dartScoreBoard.setup.player': string;
+        'page.dartScoreBoard.setup.playerList': string;
+        'page.dartScoreBoard.setup.throwInput': string;
+        'page.dartScoreBoard.setup.throwInput.hint': string;
+        'page.dartScoreBoard.setup.throwInput.resetThrow': string;
+        'page.dartScoreBoard.setup.playerLis.hint': string;
+        'page.dartScoreBoard.setup.configure.players': string;
+        'page.dartScoreBoard.setup.player.add.placeholder': string;
+        'page.dartScoreBoard.setup.player.order.title': string;
+        'page.dartScoreBoard.setup.player.add.title': string;
+        'page.dartScoreBoard.setup.players.notFound': string;
+        'page.dartScoreBoard.setup.startGame': string;
+        'page.dartScoreBoard.setup.startNewRound': string;
+        'page.dartScoreBoard.setup.gameInProgress.hint': string;
+        'page.dartScoreBoard.setup.gameInProgress.cancelQuestion': string;
+        'page.dartScoreBoard.setup.cancelGame.hint': string;
+        'page.dartScoreBoard.setup.cancelGame.confirm': string;
+        'page.dartScoreBoard.setup.cancelGame.cancel': string;
+        'page.dartScoreBoard.setup.playerExists.hint': string;
+        'page.dartScoreBoard.game.export': string;
+        'page.dartScoreBoard.game.import': string;
+        'page.dartScoreBoard.score.numberOfDarts': string;
+        'page.dartScoreBoard.score.details': string;
+        'page.dartScoreBoard.score.details.stats': string;
+        'page.dartScoreBoard.score.details.throws': string;
+        'page.dartScoreBoard.score.details.average': string;
+        'page.dartScoreBoard.score.details.dartAverage': string;
+        'page.dartScoreBoard.setup.settings.customized': string;
+        'page.dartScoreBoard.setup.gameMode.DOUBLE_IN': string;
+        'page.dartScoreBoard.setup.gameMode.DOUBLE_OUT': string;
+        'page.dartScoreBoard.setup.gameMode.DOUBLE_IN_AND_OUT': string;
+        'page.dartScoreBoard.setup.gameMode.TRIPPLE_IN': string;
+        'page.dartScoreBoard.setup.gameMode.TRIPPLE_OUT': string;
+        'page.dartScoreBoard.setup.gameMode.TRIPPLE_IN_AND_OUT': string;
+        'page.dartScoreBoard.setup.gameMode.FREE_GAME': string;
+        'page.dartScoreBoard.game.finished': string;
+        'page.dartScoreBoard.game.winner': string;
+    };
+}

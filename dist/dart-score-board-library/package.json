@@ -1,0 +1,21 @@
+{
+  "name": "dart-score-board-library",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "main": "bundles/dart-score-board-library.umd.js",
+  "module": "fesm5/dart-score-board-library.js",
+  "es2015": "fesm2015/dart-score-board-library.js",
+  "esm5": "esm5/dart-score-board-library.js",
+  "esm2015": "esm2015/dart-score-board-library.js",
+  "fesm5": "fesm5/dart-score-board-library.js",
+  "fesm2015": "fesm2015/dart-score-board-library.js",
+  "typings": "dart-score-board-library.d.ts",
+  "metadata": "dart-score-board-library.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
