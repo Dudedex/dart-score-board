@@ -445,7 +445,7 @@ class ScoreService {
         if (cummulatedScores >= 2 && [GameModes.DOUBLE_OUT, GameModes.DOUBLE_IN_AND_OUT].indexOf(gameMode) > -1) {
             return ScoreValidator.VALID;
         }
-        if (cummulatedScores >= 1 && GameModes.FREE_GAME === gameMode) {
+        if (cummulatedScores >= 1 && [GameModes.DOUBLE_IN, GameModes.TRIPPLE_IN, GameModes.FREE_GAME].indexOf(gameMode) > -1) {
             return ScoreValidator.VALID;
         }
         if (cummulatedScores === 0) {
