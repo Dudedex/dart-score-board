@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import { DartScoreBoardLibraryComponent } from './dart-score-board-library.component';
 import {FormsModule} from '@angular/forms';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -13,6 +13,7 @@ import {SetupPanelComponent} from './dart-board-panel/setup-panel/setup-panel.co
 import {ScorePanelComponent} from './dart-board-panel/score-panel/score-panel.component';
 import {DartBoardComponent} from './dart-board-panel/dart-board/dart-board.component';
 import {DartBoardPanelComponent} from './dart-board-panel/dart-board-panel.component';
+import {ScoreService} from './dart-board-panel/services/score.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,14 @@ import {DartBoardPanelComponent} from './dart-board-panel/dart-board-panel.compo
     DragDropModule,
     TranslateModule.forRoot()
   ],
+  providers: [ScoreService],
   exports: [DartScoreBoardLibraryComponent]
 })
-export class DartScoreBoardLibraryModule { }
+export class DartScoreBoardLibraryModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: DartScoreBoardLibraryModule,
+      providers: [ScoreService]
+    };
+  }
+}

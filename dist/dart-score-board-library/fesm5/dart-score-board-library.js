@@ -1422,6 +1422,18 @@ var DartBoardPanelComponent = /** @class */ (function () {
 var DartScoreBoardLibraryModule = /** @class */ (function () {
     function DartScoreBoardLibraryModule() {
     }
+    /**
+     * @return {?}
+     */
+    DartScoreBoardLibraryModule.forRoot = /**
+     * @return {?}
+     */
+    function () {
+        return {
+            ngModule: DartScoreBoardLibraryModule,
+            providers: [ScoreService]
+        };
+    };
     DartScoreBoardLibraryModule.decorators = [
         { type: NgModule, args: [{
                     declarations: [
@@ -1442,6 +1454,7 @@ var DartScoreBoardLibraryModule = /** @class */ (function () {
                         DragDropModule,
                         TranslateModule.forRoot()
                     ],
+                    providers: [ScoreService],
                     exports: [DartScoreBoardLibraryComponent]
                 },] }
     ];

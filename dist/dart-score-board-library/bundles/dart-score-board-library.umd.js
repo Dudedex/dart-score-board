@@ -1492,6 +1492,18 @@
     var DartScoreBoardLibraryModule = /** @class */ (function () {
         function DartScoreBoardLibraryModule() {
         }
+        /**
+         * @return {?}
+         */
+        DartScoreBoardLibraryModule.forRoot = /**
+         * @return {?}
+         */
+            function () {
+                return {
+                    ngModule: DartScoreBoardLibraryModule,
+                    providers: [ScoreService]
+                };
+            };
         DartScoreBoardLibraryModule.decorators = [
             { type: i0.NgModule, args: [{
                         declarations: [
@@ -1512,6 +1524,7 @@
                             dragDrop.DragDropModule,
                             core.TranslateModule.forRoot()
                         ],
+                        providers: [ScoreService],
                         exports: [DartScoreBoardLibraryComponent]
                     },] }
         ];

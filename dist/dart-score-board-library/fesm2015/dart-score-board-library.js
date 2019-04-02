@@ -1133,6 +1133,15 @@ DartBoardPanelComponent.propDecorators = {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class DartScoreBoardLibraryModule {
+    /**
+     * @return {?}
+     */
+    static forRoot() {
+        return {
+            ngModule: DartScoreBoardLibraryModule,
+            providers: [ScoreService]
+        };
+    }
 }
 DartScoreBoardLibraryModule.decorators = [
     { type: NgModule, args: [{
@@ -1154,6 +1163,7 @@ DartScoreBoardLibraryModule.decorators = [
                     DragDropModule,
                     TranslateModule.forRoot()
                 ],
+                providers: [ScoreService],
                 exports: [DartScoreBoardLibraryComponent]
             },] }
 ];
