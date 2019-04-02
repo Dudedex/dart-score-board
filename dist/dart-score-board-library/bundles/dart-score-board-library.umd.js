@@ -1465,7 +1465,7 @@
             { type: i0.Component, args: [{
                         selector: 'app-dart-board-panel',
                         template: "<div class=\"main-panel\">\r\n  <app-setup-panel [gameSettings]=\"dartGameData.settings\" (gameStarted)=\"startNewGame()\"></app-setup-panel>\r\n  <hr>\r\n  <app-game-panel [dartGameData]=\"dartGameData\" #gamePanel></app-game-panel>\r\n  <div class=\"col-xs-12\">\r\n    <hr>\r\n  </div>\r\n  <app-export-import-data-panel [dartGameData]=\"dartGameData\"></app-export-import-data-panel>\r\n</div>\r\n\r\n",
-                        styles: [".main-panel{max-width:1000px;margin:0 auto 3rem;position:relative;min-width:350px}"]
+                        styles: [".main-panel{max-width:1000px;margin:0 auto 3rem;position:relative;min-width:280px}"]
                     }] }
         ];
         /** @nocollapse */
