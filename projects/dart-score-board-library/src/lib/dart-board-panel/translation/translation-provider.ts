@@ -9,7 +9,7 @@ export class TranslationProvider {
     if (defaultLocale) {
       translate.setDefaultLang(defaultLocale);
     } else {
-      translate.setDefaultLang('en');
+      translate.setDefaultLang('de');
     }
   }
 }

@@ -20,10 +20,10 @@
     ],
     "paths": {
       "dart-score-board-library": [
-        "dist/dart-score-board-library"
+        "projects/test-library/src/lib"
       ],
       "dart-score-board-library/*": [
-        "dist/dart-score-board-library/*"
+        "projects/test-library/src/lib/*"
       ]
     }
   }

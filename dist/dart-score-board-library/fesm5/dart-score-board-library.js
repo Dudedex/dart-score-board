@@ -174,7 +174,7 @@ var TranslationProvider = /** @class */ (function () {
             translate.setDefaultLang(defaultLocale);
         }
         else {
-            translate.setDefaultLang('en');
+            translate.setDefaultLang('de');
         }
     };
     return TranslationProvider;

@@ -8,8 +8,8 @@ import {CommonModule} from '@angular/common';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {HttpClientModule} from '@angular/common/http';
-import {DartScoreBoardLibraryModule} from 'dart-score-board-library';
-import {ScoreService} from 'dart-score-board-library/lib/dart-board-panel/services/score.service';
+import {DartScoreBoardLibraryModule} from '../../projects/dart-score-board-library/src/lib/dart-score-board-library.module';
+import {ScoreService} from '../../projects/dart-score-board-library/src/lib/dart-board-panel/services/score.service';
 
 @NgModule({
   declarations: [
