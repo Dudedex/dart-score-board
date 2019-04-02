@@ -5,7 +5,7 @@ This app is a score board if you want to have a short dart match.
 The number of players is irrelevant, just have fun ;)
 
 <p align="center">
-  <img src="/demo/demo.png?raw=true"/>
+  <img src="/demo/demo.PNG?raw=true"/>
 </p>
 
 **Notice:** The results should reflect the real world result but it is not guaranteed! So use at your own risk ;)
