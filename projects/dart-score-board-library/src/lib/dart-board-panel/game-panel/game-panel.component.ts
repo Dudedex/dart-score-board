@@ -49,10 +49,7 @@ export class GamePanelComponent implements OnInit {
 
   public scoreReverted() {
     if (this.dartGameData.gameData && this.dartGameData.currentActivePlayer) {
-      console.log('start revert');
       let currentData = this.dartGameData.gameData.get(this.dartGameData.currentActivePlayer);
-      console.log('currentData');
-      console.log(currentData);
       if (currentData.currentLeg && currentData.currentLeg.scores) {
         const throwsLeftCount = 3 - currentData.currentLeg.scores.length % 3;
         if (throwsLeftCount === 3) {
@@ -190,7 +187,6 @@ export class GamePanelComponent implements OnInit {
     }
     const newPlayerScores = this.dartGameData.gameData.get(this.dartGameData.currentActivePlayer).currentLeg.scores;
     if (this.scoreService.getPendingScores(newPlayerScores.length - 1, newPlayerScores, this.dartGameData.settings.requiredScore) === 0) {
-      console.log(iteration);
       if (iteration <= this.dartGameData.currentPlayerMapKeys.length) {
         this.selectNextPlayer(iteration);
       } else {

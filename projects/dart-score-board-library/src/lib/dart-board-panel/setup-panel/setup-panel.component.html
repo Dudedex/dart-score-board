@@ -1,6 +1,8 @@
-<h3>
-  {{'page.dartScoreBoard.setup.title' | translate}}
-</h3>
+<div class="base-padding">
+  <h3>
+    {{'page.dartScoreBoard.setup.title' | translate}}
+  </h3>
+</div>
 <div class="setup-panel">
   <div class="game-running-container width-100" *ngIf="gameSettings.isGameActive">
     <div class="width-100 game-running-hint no-margin-bottom" *ngIf="!showGameCancelWarning">
@@ -75,7 +77,8 @@
       <h5>
         {{'page.dartScoreBoard.setup.player.add.title' | translate}}
       </h5>
-      <button class="btn btn-primary add-player-button" [disabled]="!newPlayerName || newPlayerName.trim() === '' || doesPlayerExists()"
+      <button class="btn btn-primary add-player-button"
+              [disabled]="!newPlayerName || newPlayerName.trim() === '' || doesPlayerExists()"
               (click)="addNewPlayer()">{{'page.dartScoreBoard.setup.player.add' | translate}}
       </button>
       <input class="player-input form-control" type="text" [(ngModel)]="newPlayerName"
@@ -88,9 +91,13 @@
       <h5>
         {{'page.dartScoreBoard.setup.player.order.title' | translate}}
       </h5>
-      <div cdkDropList *ngIf="gameSettings.players && gameSettings.players.length > 0; else showNoPlayersHint" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div cdkDropList *ngIf="gameSettings.players && gameSettings.players.length > 0; else showNoPlayersHint"
+           class="example-list" (cdkDropListDropped)="drop($event)">
         <button class="btn btn-primary player-display" *ngFor="let player of gameSettings.players" cdkDrag>
-          <img class="drag-and-drop-icon" (click)="removePlayer(player)" src="/assets/pictures/dart-score-board/drag-and-drop.svg">{{player}}<img class="delete-icon" (click)="removePlayer(player)" src="/assets/pictures/dart-score-board/trashbin.svg">
+          <img class="drag-and-drop-icon" (click)="removePlayer(player)"
+               src="/assets/pictures/tools/dart-score-board/drag-and-drop.svg">
+          {{player}}
+          <img class="delete-icon" (click)="removePlayer(player)" src="/assets/pictures/tools/dart-score-board/trashbin.svg">
         </button>
       </div>
 

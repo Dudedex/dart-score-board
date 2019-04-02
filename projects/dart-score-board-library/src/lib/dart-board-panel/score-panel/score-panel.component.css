@@ -36,7 +36,6 @@ hr {
 
 .player-details-show {
   height: 16rem;
-  overflow-y: scroll;
   transition: 500ms;
 }
 
@@ -116,4 +115,8 @@ hr {
   border-radius: 5px;
   border: 2px solid #e0e0e0;
   margin-bottom: 0.5rem;
+}
+
+.right {
+  float:right;
 }

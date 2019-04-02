@@ -1,27 +1,22 @@
-# DartScoreBoard
+# Image comparer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.4.
+This app is a score board if you want to have a short dart match.
 
-## Development server
+The number of players is irrelevant, just have fun ;)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<p align="center">
+  <img src="/demo/demo.png?raw=true"/>
+</p>
 
-## Code scaffolding
+**Notice:** The results should reflect the real world result but it is not guaranteed! So use at your own risk ;)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Test it yourself
 
-## Build
+Clone or download the repository
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Initialize it with `npm install`
 
-## Running unit tests
+Run it with `ng serve` and navigate to `http://localhost:4200/`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Or Visit: https://www.dudedex.com/#/dart-score-board

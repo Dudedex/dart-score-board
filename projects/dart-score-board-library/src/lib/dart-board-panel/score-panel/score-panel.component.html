@@ -11,11 +11,11 @@
     </div>
     <div class="player-number-of-darts col-xs-6 text-left" (click)="triggerDisplayDetails()">
       <ng-container *ngIf="!displayDetails">
-        <img src="./assets/pictures/dart-score-board/details.svg"
+        <img src="./assets/pictures/tools/dart-score-board/details.svg"
              class="menu-icon-{{isActive ? 'active' : 'inactive'}} upside-down">
       </ng-container>
       <ng-container *ngIf="displayDetails">
-        <img src="./assets/pictures/dart-score-board/details.svg"
+        <img src="./assets/pictures/tools/dart-score-board/details.svg"
              class="menu-icon-{{isActive ? 'active' : 'inactive'}}">
       </ng-container>
       {{'page.dartScoreBoard.score.details' | translate}}
@@ -23,9 +23,9 @@
     <div class="player-number-of-darts col-xs-6 text-right">
       {{'page.dartScoreBoard.score.numberOfDarts' | translate}}: {{legData.scores.length}}
     </div>
-    <div class="player-details-{{displayDetails  ? 'show' : 'hidden'}} col-xs-12 fixed-font-height">
+    <div class="player-details-{{displayDetails  ? 'show' : 'hidden'}} col-xs-12 no-padding fixed-font-height">
       <hr>
-      <div class="col-xs-7 text-center">
+      <div class="col-xs-7 no-padding text-center">
         <h4>
           {{'page.dartScoreBoard.score.details.stats' | translate}}
         </h4>
@@ -61,8 +61,7 @@
           </h5>
         </div>
       </div>
-      <div class="col-xs-1"></div>
-      <div class="col-xs-4 text-center">
+      <div class="col-xs-4 right no-padding text-center">
         <h4>
           {{'page.dartScoreBoard.score.details.throws' | translate}}
         </h4>
@@ -71,7 +70,7 @@
           <div class="score-entry" *ngFor="let score of legData.scores; let i = index">
             <div
               class="col-xs-12 no-padding {{!score.isValid ? 'alert-danger' : ''}} {{getPendingScores(i) === 0 ? 'alert-success': ''}}">
-              <div class="col-xs-6 text-left no-padding"><strong>{{getPendingScores(i)}}</strong></div>
+              <div class="col-xs-6 text-right no-padding"><strong>{{getPendingScores(i)}}</strong></div>
               <div class="col-xs-6 text-right no-padding">({{getScoreDisplay(score.total)}})</div>
             </div>
           </div>
