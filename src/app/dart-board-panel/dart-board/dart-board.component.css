@@ -4,10 +4,12 @@
   margin: 0 auto;
 }
 
-.offset-top {
-  margin-top: 6px;
-}
-
 .right {
   float: right;
+}
+
+.revert-label {
+  margin-right: 1rem;
+  font-size: 2.0rem;
+  margin-left: 0.5rem;
 }

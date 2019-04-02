@@ -10,6 +10,7 @@ export class De {
       'page.dartScoreBoard.setup.playerList': 'Spielerliste',
       'page.dartScoreBoard.setup.throwInput': 'Eingabe des Wurfes',
       'page.dartScoreBoard.setup.throwInput.hint': 'Klicken Sie auf das jeweilige Feld um den geworfenen Wert einzugeben.<br/> Klicken Sie auf den äußeren Kreis sollte die Scheibe verfehlt worden sein.',
+      'page.dartScoreBoard.setup.throwInput.resetThrow': 'Letzen Wurf zurücksetzen',
       'page.dartScoreBoard.setup.playerLis.hint': '<strong>{{name}}</strong> ist am Zug. <br/> Er darf noch <strong>{{dartCount}}</strong> mal werfen.',
       'page.dartScoreBoard.setup.configure.players': 'Spielermanagement',
       'page.dartScoreBoard.setup.player.add.placeholder': 'Name ...',
@@ -35,12 +36,6 @@ export class De {
 
       'page.dartScoreBoard.setup.settings.customized': 'Angepasst',
 
-      'page.dartScoreBoard.setup.requiredSets.intro': 'Beste/r aus ',
-      'page.dartScoreBoard.setup.requiredSets.freeGame': 'Freies Spiel ohne Sätze',
-      'page.dartScoreBoard.setup.requiredLegs.intro': 'Erste/r bei ',
-      'page.dartScoreBoard.setup.requiredLegs.minimal': 'Minimaler Vorsprung ',
-      'page.dartScoreBoard.setup.requiredLegs.freeGame': 'Freies Spiel ohne Legs',
-
       'page.dartScoreBoard.setup.gameMode.DOUBLE_IN': 'Doppel rein',
       'page.dartScoreBoard.setup.gameMode.DOUBLE_OUT': 'Doppel raus',
       'page.dartScoreBoard.setup.gameMode.DOUBLE_IN_AND_OUT': 'Doppel rein und raus',
@@ -48,6 +43,8 @@ export class De {
       'page.dartScoreBoard.setup.gameMode.TRIPPLE_OUT': 'Dreifach raus',
       'page.dartScoreBoard.setup.gameMode.TRIPPLE_IN_AND_OUT': 'Dreifach rein und raus',
       'page.dartScoreBoard.setup.gameMode.FREE_GAME': 'Freies Spiel',
+
+
 
       'page.dartScoreBoard.game.finished': 'Herzlichen Glückwunsch <strong>"{{player}}"</strong>, du hast gewonnen!<br/> Eine neue Runde beginnen?',
       'page.dartScoreBoard.game.winner': 'Das Leg wurde durch <strong>"{{player}}"</strong> gewonnen.<br/> Die übrigen Spieler können fortfahren oder es kann eine neue Runde begonnen werden',
