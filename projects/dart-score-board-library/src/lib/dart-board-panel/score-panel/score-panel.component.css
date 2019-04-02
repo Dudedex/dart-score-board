@@ -36,6 +36,7 @@ hr {
 
 .player-details-show {
   height: 16rem;
+  overflow-y: hidden;
   transition: 500ms;
 }
 
