@@ -17,6 +17,7 @@ export class De {
       'page.dartScoreBoard.setup.player.add.title': 'Spieler hinzufügen',
       'page.dartScoreBoard.setup.players.notFound': 'Noch keine Spieler hinzugefügt',
       'page.dartScoreBoard.setup.startGame': 'Spiel starten!',
+      'page.dartScoreBoard.setup.startNewRound': 'Neue Runde starten!',
       'page.dartScoreBoard.setup.gameInProgress.hint': 'Derzeit wird ein Spiel ausgeführt! Änderungen an den Einstellungen sind deshalb nicht möglich!',
       'page.dartScoreBoard.setup.gameInProgress.cancelQuestion': 'Spiel abbrechen?',
       'page.dartScoreBoard.setup.cancelGame.hint': 'Sind Sie sicher, dass Sie das laufende Spiel beenden möchten?',
@@ -48,6 +49,8 @@ export class De {
       'page.dartScoreBoard.setup.gameMode.TRIPPLE_IN_AND_OUT': 'Dreifach rein und raus',
       'page.dartScoreBoard.setup.gameMode.FREE_GAME': 'Freies Spiel',
 
+      'page.dartScoreBoard.game.finished': 'Herzlichen Glückwunsch <strong>"{{player}}"</strong>, du hast gewonnen!<br/> Eine neue Runde beginnen?',
+      'page.dartScoreBoard.game.winner': 'Das Leg wurde durch <strong>"{{player}}"</strong> gewonnen.<br/> Die übrigen Spieler können fortfahren oder es kann eine neue Runde begonnen werden',
     };
   }
 }

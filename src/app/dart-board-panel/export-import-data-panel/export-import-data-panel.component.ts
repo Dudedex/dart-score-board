@@ -1,7 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {DartGameData} from '../classes/dart-game-data';
 import {GameSettings} from '../classes/game-setttings';
-import {GameData} from '../classes/game-data';
+import {PlayerData} from '../classes/player-data';
 
 @Component({
   selector: 'app-export-import-data-panel',
@@ -27,6 +27,7 @@ export class ExportImportDataPanelComponent implements OnInit {
     objectString += '"settings":' + JSON.stringify(this.dartGameData.settings) + ',';
     objectString += '"currentPlayerMapKeys": ' + JSON.stringify(this.dartGameData.currentPlayerMapKeys) + ',';
     objectString += '"currentActivePlayer": ' + JSON.stringify(this.dartGameData.currentActivePlayer) + ',';
+    objectString += '"legFinished": ' + JSON.stringify(this.dartGameData.legFinished) + ',';
     objectString += '"gameData": [';
     let isFirst = true;
     for (const key of Array.from(this.dartGameData.gameData.keys())) {
@@ -56,10 +57,11 @@ export class ExportImportDataPanelComponent implements OnInit {
       const settings = JSON.parse(data).settings;
       const currentActivePlayer = JSON.parse(data).currentActivePlayer;
       const currentPlayerMapKeys = JSON.parse(data).currentPlayerMapKeys;
-      const gameData = new Map<string, GameData>();
+      const legFinished = JSON.parse(data).legFinished;
+      const gameData = new Map<string, PlayerData>();
       let throwsDone = 0;
       for (const gameDataObject of JSON.parse(data).gameData) {
-        const gameEntry = new GameData();
+        const gameEntry = new PlayerData();
         gameEntry.currentLeg.scores = [];
         for (const score of gameDataObject.value.currentLeg.scores) {
           gameEntry.currentLeg.scores.push(score);
@@ -69,8 +71,9 @@ export class ExportImportDataPanelComponent implements OnInit {
       }
       this.dartGameData.throwsDone = throwsDone;
       this.dartGameData.currentActivePlayer = currentActivePlayer;
+      this.dartGameData.legFinished = legFinished === 'true';
       this.dartGameData.currentPlayerMapKeys = currentPlayerMapKeys;
-      this.dartGameData.gameData = gameData as Map<string, GameData>;
+      this.dartGameData.gameData = gameData as Map<string, PlayerData>;
       this.dartGameData.settings = settings as GameSettings;
     };
     fileReader.readAsText(file.target.files[0]);

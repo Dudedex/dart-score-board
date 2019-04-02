@@ -1,6 +1,6 @@
 import {LegData} from './leg-data';
 
-export class GameData {
+export class PlayerData {
   public currentLeg: LegData;
 
   constructor() {

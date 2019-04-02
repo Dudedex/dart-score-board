@@ -1,10 +1,11 @@
 import {GameSettings} from './game-setttings';
-import {GameData} from './game-data';
+import {PlayerData} from './player-data';
 
 export class DartGameData {
   public settings: GameSettings;
-  public gameData: Map<string, GameData>;
+  public gameData: Map<string, PlayerData>;
   public currentActivePlayer: string;
   public currentPlayerMapKeys: string[];
   public throwsDone: number;
+  public legFinished: boolean;
 }

@@ -4,7 +4,7 @@ import {GameSettings} from './classes/game-setttings';
 import {TranslateService} from '@ngx-translate/core';
 import {TranslationProvider} from './translation/translation-provider';
 import {GameModes} from './classes/game-modes';
-import {GameData} from './classes/game-data';
+import {PlayerData} from './classes/player-data';
 import {ScoreEntry} from './classes/score-entry';
 import {GamePanelComponent} from './game-panel/game-panel.component';
 

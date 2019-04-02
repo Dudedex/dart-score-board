@@ -1,5 +1,5 @@
 import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
-import {GameData} from '../classes/game-data';
+import {PlayerData} from '../classes/player-data';
 import {LegData} from '../classes/leg-data';
 import {ScoreEntry} from '../classes/score-entry';
 import {ScoreService} from '../services/score.service';

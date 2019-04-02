@@ -15,14 +15,33 @@
       <p *ngIf="dartGameData.settings.isGameActive" [innerHTML]="'page.dartScoreBoard.setup.playerLis.hint' | translate: getPlayerObject()">
       </p>
     </div>
-    <ng-container *ngIf="dartGameData.settings.isGameActive && dartGameData.currentPlayerMapKeys">
+    <ng-container *ngIf="(dartGameData.settings.isGameActive || dartGameData.legFinished)  && dartGameData.currentPlayerMapKeys">
       <div class="col-xs-12" *ngFor="let player of dartGameData.currentPlayerMapKeys">
-        <div class="no-border no-padding col-xs-12 {{ isPlayerActive(player) ? 'player-active' : 'player-inactive'}}">
+        <div class="no-padding col-xs-12 {{ isPlayerActive(player) ? 'player-active' : 'player-inactive'}}">
           <app-score-panel [playerName]="player" [legData]="dartGameData.gameData.get(player).currentLeg"
                            [requiredScore]="dartGameData.settings.requiredScore"
                            [isActive]="isPlayerActive(player)"></app-score-panel>
         </div>
       </div>
     </ng-container>
+  </div>
+  <div class="alert-warning col-xs-12 game-over-panel" *ngIf="getFirstFinisher() && !dartGameData.legFinished">
+    <div [innerHTML]="'page.dartScoreBoard.game.winner' | translate: {'player': getFirstFinisher()}">
+    </div>
+    <div>
+      <button class="btn btn-primary margin-top" (click)="startNewGame()">
+        {{'page.dartScoreBoard.setup.startNewRound' | translate}}
+      </button>
+    </div>
+  </div>
+  <div class="alert-success col-xs-12 game-over-panel" *ngIf="dartGameData.legFinished">
+    <div [innerHTML]="'page.dartScoreBoard.game.finished' | translate: {'player': getFirstFinisher()}">
+    {{'page.dartScoreBoard.game.finished' | translate}}
+    </div>
+    <div>
+      <button class="btn btn-primary margin-top" (click)="startNewGame()">
+        {{'page.dartScoreBoard.setup.startNewRound' | translate}}
+      </button>
+    </div>
   </div>
 </div>
