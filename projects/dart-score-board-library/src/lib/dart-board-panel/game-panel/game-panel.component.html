@@ -8,7 +8,7 @@
     <app-dart-board [throwsDone]="dartGameData.throwsDone" (scoreEntered)="scoreEntered($event)" (scoreReverted)="scoreReverted()"></app-dart-board>
   </div>
   <div class="col-sm-6 no-padding no-border">
-    <div class="col-sm-12">
+    <div class="col-sm-12 no-padding">
       <h3 class="no-margin">
         {{'page.dartScoreBoard.setup.playerList' | translate}}
       </h3>
@@ -16,7 +16,7 @@
       </p>
     </div>
     <ng-container *ngIf="(dartGameData.settings.isGameActive || dartGameData.legFinished)  && dartGameData.currentPlayerMapKeys">
-      <div class="col-xs-12" *ngFor="let player of dartGameData.currentPlayerMapKeys">
+      <div class="col-xs-12 no-padding" *ngFor="let player of dartGameData.currentPlayerMapKeys">
         <div class="no-padding col-xs-12 {{ isPlayerActive(player) ? 'player-active' : 'player-inactive'}}">
           <app-score-panel [playerName]="player" [legData]="dartGameData.gameData.get(player).currentLeg"
                            [requiredScore]="dartGameData.settings.requiredScore"

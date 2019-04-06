@@ -2,15 +2,22 @@
   position: relative;
 }
 
-.config-group{
+.config-group {
   padding: 0.5rem;
-  margin: 0.5rem;
   border-radius: 5px;
+  margin-bottom: 0.5rem;
   background-color: #adadad;
 }
 
-.radio-button-group {
-  height: 21rem;
+@media (min-width: 768px) {
+  .radio-button-group-game-mode {
+    margin-right: 0.5rem;
+    height: 25rem;
+  }
+
+  .radio-button-group-required-score {
+    height: 25rem;
+  }
 }
 
 .custom-input {
