@@ -17,12 +17,18 @@ export class DartBoardComponent implements OnInit {
   @Input()
   public throwsDone = 0;
 
+  public clickedId = undefined;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  public score(type: number, field: number) {
+  public score(type: number, field: number, event: MouseEvent) {
+    this.clickedId = (event.target as any).id;
+    setTimeout(() => {
+      this.clickedId = undefined;
+    }, 750);
     const scoreObject = new ScoreEntry();
     scoreObject.field = field;
     scoreObject.type = type;
@@ -33,6 +39,13 @@ export class DartBoardComponent implements OnInit {
 
   public revertScore() {
     this.scoreReverted.emit();
+  }
+
+  public getFillColor(elementId: string, defaultColor: string) {
+    if (!this.clickedId || this.clickedId !== elementId)  {
+      return defaultColor;
+    }
+    return '#0009b7';
   }
 
 }

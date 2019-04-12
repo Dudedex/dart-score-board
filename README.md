@@ -1,4 +1,4 @@
-# Image comparer
+# Dart score board
 
 This app is a score board if you want to have a short dart match.
 
